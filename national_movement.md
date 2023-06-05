@@ -1,10 +1,12 @@
 # Place
-![Revolt of 1857 -Important Leaders](./Screenshot 2023-06-05 at 10-26-31 Revolt of 1857 - Causes Impact Failure List of Important Leaders Involved FAQ.png)
+<img src="./Screenshot 2023-06-05 at 10-26-31 Revolt of 1857 - Causes Impact Failure List of Important Leaders Involved FAQ.png">
 
 # Name
 
 # Date
 - Revolt of 1857: Military Factor, July 25, 1856. General Enlistment Act.
+
+<hr />
 
 # Question 1 > Revolt of 1857
 
