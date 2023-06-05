@@ -1,6 +1,6 @@
 # Place
-![Important Leaders](rev_1857_imp_leaders.png)
-<img src="rev_1857_imp_leaders.png" />
+
+![Important Leaders In Revolt 1857](https://github.com/chrybrk/Practice-End-Semester/assets/111070669/672f84be-aee6-4e44-8736-442b1d6b869c)
 
 # Name
 
