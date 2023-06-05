@@ -1,5 +1,5 @@
 # Place
-<img src="./rev_1857_imp_leaders.png" />
+![Important Leaders](rev_1857_imp_leaders.png)
 
 # Name
 
