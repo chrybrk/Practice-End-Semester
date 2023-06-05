@@ -1,5 +1,5 @@
 # Place
-<img src="./Screenshot 2023-06-05 at 10-26-31 Revolt of 1857 - Causes Impact Failure List of Important Leaders Involved FAQ.png">
+<img src="./rev_1857_imp_leaders.png">
 
 # Name
 
@@ -8,7 +8,7 @@
 
 <hr />
 
-# Question 1 > Revolt of 1857
+# > Revolt of 1857
 
 ## Immediate Factor
 
@@ -57,4 +57,4 @@
 - Majorly **northern India** was affected by this revolt.
 - The three presidencies of **Bengal, Bombay and Madras** remained mostly unaffected.
 
-# Question 2 > Revolt of 1857
+<hr />
