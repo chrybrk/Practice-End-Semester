@@ -1,5 +1,6 @@
 # Place
 ![Important Leaders](rev_1857_imp_leaders.png)
+<img src="rev_1857_imp_leaders.png" />
 
 # Name
 
