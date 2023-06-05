@@ -157,10 +157,11 @@ Importance of Congress Khilafat Swaraj Party
 The Swaraj Party wanted to stop the Government and produce halts on each action. They raised their voices in the Legislative Assembly about their resentments and desires, boycotting 
 all Government-related receptions and authorized functions.
 
+- Swaraj Party wanted to stop the Government and have own set of administrative rules, and raised their voices in the Legislative.
+
 • Pro changers and no changers, along with Mahatma Gandhi, put up a united action to
 obtain amendments from the Government.
 • Swarajists got the right to contest elections within Congress as an individual group.
-
 
 Aim and Objective of Swaraj Party
 
@@ -168,6 +169,7 @@ Swaraj party's main purpose were to inquire about the new Central Legislative As
 elections in 1923. Another objective was to disturb and obstruct the British Raj in India with anti-
 Government rage among the council sections. The goals of Swaraj Party were:
 
+# IMPORTANT
 • Achieving self-rule or Swarajya.
 • Getting the control to draft a constitution.
 • Gaining status of sovereignty.
@@ -180,11 +182,11 @@ Government rage among the council sections. The goals of Swaraj Party were:
 
 Accomplishments and Contribution of Swaraj Party
 
-
+# IMPORTANT
 The significant achievements of the Swaraj Party must be addressed. They defeated the Public
 Safety Bill in 1928. The Swarajist party gave passionate speeches on civil freedom and self-rule in the Assembly.
 
-• The leading member who became the speaker of the Central Legislative Assembly in 1925 was Swarajist Vithalbhai Patel.
+• The leading member who became the speaker of the Central Legislative Assembly in 1926 was Swarajist Vithalbhai Patel.
 • They were able to disclose the drawbacks of the reforms by Montagu-Chelmsford.
 • The party even got higher votes than the Government in budgetary allocation issues
 
@@ -195,6 +197,7 @@ Indian associate. The no changers and pro changers of the party had the given re
 
 Madras Regional Swarajya Party.
 
+# Names are here, and they are not Important.
 The establishment of Madras Regional Swarajya Party took place in 1923. It was headed by S.
 Srinivasa Iyengar and S. Satyamurti. It was considered the only biggest party during the elections of the Assembly between 1926 and 1934 but denied forming the regional government.
 Decline of Swaraj Party
@@ -203,9 +206,42 @@ The initial willingness of Swaraj Party in 1924 became feeble. Between 1925-1927
 Swarajists decline due to discouragement. The members of Swaraj Party could not follow the
 approach of 'constant, persistent regular interference'.
 
+- In 1924, Swarajists decline due to discouragement, members of Swaraj party could not follow the approach of approach of 'constant, persistent regular interference'.
+- Another primary reason for the party's weakening was the demise of C R Das in 1925.
+- They could not hold their grudge to tell the world their ideas.
+
 • Another primary reason for the party's weakening was the demise of C R Das in 1925.
 • New political ideas of the Swaraj Party spread openly to all sections of Indian society 
 
 • The Congress of Calcutta decided to proclaim complete independence as its intent if the British did not accept the Nehru Report by 31 December 1929.
 • There were divisions among Swarajists internally, separating them into responsivist and non-responsivist. exited from legislatures in 1926.
 • The support of several party members was lost as the party did not assist the peasant causality in Bengal.
+
+
+
+
+# Moderates
+- Moderates believed in Liberalism and Moderate Politics.
+- They believed that the British rulers were merely unaware of the plight of the Indian masses.
+- That once they were made aware the British authorities would do their utmost to improve the lives of the local populace.
+- The moderates found their support base in the Zamindars and the upper-middle-class
+- Moderates wanted greater autonomy and self-rule while still under the nominal rule of the British crown
+- Moderates limited their struggle to constitutional means
+- Prayer, Petition, Persuasion, and Philanthropy. Their demands were constitutional, and so was their agitation. Their methods were regarded as ‘Passive Resistance’.
+- Dadabai Naoroji, A.O. Hume
+
+# Extremists
+- The Extremist leaders firmly believed that the British had no interest of the Indian people in mind. It was evident from the lacklustre response from the authorities during a plague or famine
+- The extremists found their support bases among the educated middle-class and lower classes
+- Extremists wanted completed independence from British rule
+- Extremists often used extra-constitutional methods often during their activities
+- Extremists were radical in terms of their approach, and believed in militant methods including but not limited to the assassination of key personnel.
+- Lala Lajpat Rai, Bal Gangadhar Tilak
+
+
+# Surat Split 1907
+- The Surat Split was the splitting of the Indian National Congress into two groups – the Extremists and the Moderates – at the Surat session in 1907.
+- At the Surat Session of INC, the Extremists wanted Lala Lajpat Rai to become the presidential candidate, while the Moderates were in support of Rash Bihari Ghosh.
+- The Surat split was a big jolt to the Indian National Congress. In fact, the difference between the moderates and the extremists presented an opportunity to the British.
+- The moderates were quite reluctant to pass the motion on the demand for Swaraj. The Arya-samajist notion of Swaraj and Swadeshi, was the hallmark of the programme of the extremists.
+- In the initial days, there were many Congress leaders who opposed the notion of Swaraj, the demand for Swaraj, and extremist politics, but in the beginning of the 20th Century, some of the veteran Congress leaders like Dadabhai Naoroji, and G.K. Gokhale, had the word, ‘Swaraj’ in their minds.

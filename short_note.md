@@ -86,4 +86,86 @@ Mahatma Gandhi brought different groups together under one movement which was in
 # Muslim League
 - Muslim League was founded in 1906, to safeguard the right of Indian Muslim.
 - To create separate Muslim Nation during partition of British India (1947).
+- Self-government was adopted by British for India.
+- Its leaders, notably Mohammed Ali Jinnah, called for Hindu-Muslim unity in a united and independent India.
+- After 1940, Muslims wanted separate nation, because they were feared that it would be indian dominated independence.
 
+
+
+
+
+# Hindu Mahasabha
+- Hindu Mahasabha was founded in 1915, because work among Hindu religious and untouchables, on protection of cows and spread of hindi.
+- In Bengal the movement remained concentrated, worked on removal of untouchability and the purification of 'polluted' peoples.
+- The Mahasabha's involvement with the lower caste is much prominence.
+- Mahasabha encouraged activists to persuade labourers and sharecroppers to stop work in the fields of Muslim jotedars.
+- Hindu politicians break their connections with the Muslim employees.
+
+
+
+
+
+# Quit India Movement
+- To drive away the British from the india to achive indian independence.
+- It was implemented by All India Congress Committee.
+- British had ruled upon us for over two centuries.
+- Gandhi including other leaders took do or die pledge.
+- Launched the movement 8th Aug, 1942, motive that the British would withdraw themselves from India.
+
+
+
+
+
+# Swaraj Party
+- Swaraj Party wanted to stop the Government and have own set of administrative rules, and raised their voices in the Legislative.
+- Inquire about the new Central Legislative Assembly.
+- To disturb and obstruct the British Raj in India, with anti-government rage among the council sections.
+- Rules
+    - Achieving self-rule or Swarajya.
+    - Getting the control to draft a constitution.
+    - Gaining status of sovereignty.
+    - Bringing complete regional independence.
+    - Manage the municipal and provincial bodies.
+    - Categorize farming and industrial labour.
+    - Indulge in the productive programs held by Congress.
+    - Owning a tool or agency to advertise internationally.
+- The leading member who became the speaker of the Central Legislative Assembly in 1925 was Swarajist Vithalbhai Patel.
+- They were able to disclose the drawbacks of the reforms by Montagu-Chelmsford.
+- The party even got higher votes than the Government in budgetary allocation issues
+- British committee creating proposals for the Indians constitution without involving or consulting Indian associate.
+- In 1924, Swarajists decline due to discouragement, members of Swaraj party could not follow the approach of approach of 'constant, persistent regular interference'.
+- Another primary reason for the party's weakening was the demise of C R Das in 1925.
+- They could not hold their grudge to tell the world their ideas.
+- Swarijist had conflicts within themselves.
+- The support of several party were lost.
+
+
+
+
+
+# Moderates
+- Moderates believed in Liberalism and Moderate Politics.
+- They believed that Britishers are unaware with the Indans and once they are eventually, British authorities would do their best to improve.
+- They found their support base in the Zamindars and the upper-middle-class.
+- Moderates wanted self-rule, being under British crown.
+- They were dependend on rules and regulations.
+- Dadabai Naoroji, A.O. Hume
+
+# Extremists
+- They did not believed that British authorities had interest on indians.
+- Support base were educated middle class and lower class.
+- They did not wanted Britishers to interfere.
+- They would go beyond constitution.
+- Lala Lajpat Rai, Bal Gangadhar Tilak
+
+
+
+
+
+# Surat Split 1907
+- The Surat Split was the splitting of the Indian National Congress into two groups – the Extremists and the Moderates – at the Surat session in 1907.
+- At the Surat Session of INC, the Extremists wanted Lala Lajpat Rai to become the presidential candidate, while the Moderates were in support of Rash Bihari Ghosh.
+- British got the opportunity, because of the difference between moderates and extremists.
+- Moderates do not want to pass the motion on the demand of Swaraj.
+- Extremists wanted the notion of Swaraj and swadeshi.
+- Dadabhai Naoroji, and G.K. Gokhale, had word 'Swaraj'.
