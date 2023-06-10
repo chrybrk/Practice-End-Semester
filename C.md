@@ -222,8 +222,8 @@ int main()
 - A function can also be referred as a method or a sub-routine or a procedure, etc
 
 ### Types of function <a name="types_of_function"></a>
-    - [Standard library functions](#stdlib)
-    - [User-defined function](#user-defined)
+- [Standard library functions](#stdlib)
+- [User-defined function](#user-defined)
 
 ### Standard library functions <a name="stdlib"></a>
 - The standard library functions are built-in functions in C programming.
@@ -497,13 +497,13 @@ int main()
 
 ### Scope <a name="scope_in_c"></a>
 - **Local Variables:**
-- Variables that are declared inside a function or block are called local variables.
-- They can be used only by statements that are inside that function or block of code.
-- Local variables are not known to functions outside their own.
+* Variables that are declared inside a function or block are called local variables.
+* They can be used only by statements that are inside that function or block of code.
+* Local variables are not known to functions outside their own.
 
 - **Global Variables:**
-- Global variables are defined outside a function, usually on top of the program.
-- Global variables hold their values throughout the lifetime of your program and they can be accessed inside any of the functions defined for the program.
+* Global variables are defined outside a function, usually on top of the program.
+* Global variables hold their values throughout the lifetime of your program and they can be accessed inside any of the functions defined for the program.
 
 ```c
 int a = 10; // global
