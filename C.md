@@ -25,6 +25,12 @@
     - [2D](#array_2d)
     - [Assigning Values to a 2D Array](#array_2d_assign)
     - [Writing 2D array code](#array_2d_code)
+4. [Structure in C](#structure_in_c)
+    - [Declaration of Structure Variable](#structure_decl)
+    - [Arrays of structure](#structure_array)
+    - [Passing structure to functions](#structure_passing_to_function)
+    - [Nested structure](#structure_nested)
+    - [Writing Structure Code](#structure_code)
 
 ## Basic Of C Language <a name="basic_of_c_language"></a>
 - C is a general-purpose programming language created by Dennis Ritchie at the Bell Laboratories in the early 1970s.
@@ -860,6 +866,113 @@ int main()
         printf("\n");
     }
 
+    return 0;
+}
+```
+
+## Structure in c <a name="structure_in_c"></a>
+- We use structures to store data of different types. For example, you are a student. 
+- Your name is a string and your phone number and `roll_no` are integers. 
+- So, here name, address and phone number are those different types of data.
+
+```c
+struct structure_name
+{
+    char *name;
+    int roll_no;
+    long int phone_no;
+};
+```
+
+### Declaration of Structure Variable <a name="structure_decl"></a>
+- Just as we declare variables of type int, char etc, we can declare variables of structure as well.
+
+```c
+// declaration and define
+struct student
+{
+  int roll_no;
+  char name[30];
+  int phone_number;
+};
+
+// declaration and define
+struct student
+{
+  int roll_no;
+  char name[30];
+  int phone_number;
+}p1, p2, p3; // define variable
+
+main()
+{
+  struct student p1, p2, p3; // define variable
+}
+```
+
+### Arrays of structure <a name="structure_array"></a>
+```c
+struct student
+{
+  char name[30];
+  int phone_number;
+};
+
+main()
+{
+    struct student variable[4];         // 4, structure.
+    struct student one = variable[0];   // we can access them as usual array elements.
+}
+```
+
+### Passing structure to function <a name="structure_passing_to_function"></a>
+```c
+void print_value(struct student a);
+int main()
+{
+    struct student a;
+    print_value(a);
+}
+```
+
+### Nested structure <a name="structure_nested"></a>
+```c
+struct students
+{
+    struct names {
+        char *a;
+        char *b;
+    } name;
+    int roll_no;
+};
+```
+
+### Writing Structure Code <a name="structure_code"></a>
+```c
+#include <stdio.h>
+
+struct info
+{
+    char name[128];
+    int maths;
+    int physics;
+    int cs;
+};
+
+int main()
+{
+    int n = 50;
+    struct info v[n];
+
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%s%d%d%d", v[i].name, &v[i].maths, &v[i].physics, &v[i].cs);
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        printf("name: %s, maths: %d, physics: %d, cs: %d, avg: %d\n", v[i].name, v[i].maths, v[i].physics, v[i].cs, ((v[i].maths + v[i].physics + v[i].cs) / 3));
+    }
     return 0;
 }
 ```
