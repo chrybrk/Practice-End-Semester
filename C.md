@@ -1,5 +1,3 @@
-- %d, %i, %f.. write notes
-
 # Table of contents
 1. [Basic of C Language](#basic_of_c_language)
     1. [Keywords](#keywords)
@@ -11,6 +9,7 @@
     7. [loop-statement](#basic_control_statement_loop)
     8. [switch-statement](#basic_control_statement_switch)
     9. [break and continue](#basic_control_statement_break_continue)
+    10. [Format Specifiers](#basic_format_specifiers)
 
 ## Basic Of C Language <a name="basic_of_c_language"></a>
 - C is a general-purpose programming language created by Dennis Ritchie at the Bell Laboratories in the early 1970s.
@@ -32,20 +31,12 @@ int main()
 > `0, "something"` they are litrals, integer and string.
 
 ### Keywords <a name="keywords"></a>
-| keywords |
-|----------|
-| auto     |
-| double   |
-| int      |
-| struct   |
-| break    |
-| else     |
-| long     |
-| switch   |
-| case     |
-| enum     |
-| register |
-| union    |
+| one       | two       | three     |
+|-----------|-----------|-----------|
+| auto      | double    | int       |
+| struct    | break     | else      |
+| long      | switch    | case      |
+| enum      | register  | union     |
 
 ### interpreter vs compiler <a name="interpreter_vs_compiler"></a>
 | Interpreter                                                                                                                                           | Compiler                                                                                                                                                 |
@@ -198,3 +189,19 @@ int main()
 ### Break and Continue <a name="basic_control_statement_break_continue"></a>
 - **break** => it'll exit out of the loop.
 - **continue** => it'll skip the iteration.
+
+### Format Specifiers <a name="basic_format_specifiers"></a>
+| Format Specifiers | Type of Output                      |
+|-------------------|-------------------------------------|
+| %d or %i          | A decimal integer or signed integer |
+| %c                | Signed character                    |
+| %f                | Signed float                        |
+| %e                | A floating-point number             |
+| %s                | A string or sequence of character   |
+| %lf               | double                              |
+| %Lf               | Long double                         |
+| %o                | Octal integer                       |
+| %u                | Short unsigned integer              |
+| %ld               | Long decimal integer                |
+| %x                | Hexadecimal integer                 |
+| %p                | Print memory address in the hex.    |
