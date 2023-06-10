@@ -33,11 +33,8 @@ int main()
 
 ### Keywords <a name="keywords"></a>
 | auto     | double   | int      | struct   |
-|----------|----------|----------|----------|
 | break    | else     | long     | switch   |
-|----------|----------|----------|----------|
 | case     | enum     | register | union    |
-|----------|----------|----------|----------|
 
 ### interpreter vs compiler <a name="interpreter_vs_compiler"></a>
 |               Interpreter             |               Compiler                |
@@ -45,27 +42,21 @@ int main()
 |  Translates program one statement     |  Scans the entire program and         |
 |  at a time.                           |  translates it as a whole into        |
 |                                       |  machine code.                        |
-|---------------------------------------|---------------------------------------|
+|                                       |                                       |
 |  Interpreters usually take less       |  Compilers usually take a large       |
 |  amount of time to analyze the        |  amount of time to analyze the        |
 |  source code. However, the overall    |  source code. However, the overall    |
 |  execution time is comparatively      |  execution time is comparatively      |
 |  slower than compilers.               |  faster than compilers.               |
-|---------------------------------------|---------------------------------------|
 
 ### Operators <a name="basic_operator"></a>
 |   Operator |                  Description             |           Example         |
 |------------|------------------------------------------|---------------------------|
 |   +        |      Adds two operands.                  |           A + B = 30      |
-|------------|------------------------------------------|---------------------------|
 |   −        |      Subtracts operand from the first.   |           A − B = -10     |
-|------------|------------------------------------------|---------------------------|
 |   *        |      Multiplies both operands.           |           A * B = 200     |
-|------------|------------------------------------------|---------------------------|
 |   /        |      Divides numerator by de-numerator.  |           B / A = 2       |
-|------------|------------------------------------------|---------------------------|
 |   %        |      Modulus Operator.                   |           B % A = 0       |
-|------------|------------------------------------------|---------------------------|
 
 ### Writing C Code <a name="c_code_basic"></a>
 
