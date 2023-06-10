@@ -10,6 +10,14 @@
     8. [switch-statement](#basic_control_statement_switch)
     9. [break and continue](#basic_control_statement_break_continue)
     10. [Format Specifiers](#basic_format_specifiers)
+2. [Function in C](#function_in_c)
+    1. [Types of functions](#types_of_function)
+    2. [Function Features](#features_of_function)
+    3. [Writing Function Code](#function_code)
+    4. [Recursion](#functions_with_recursion)
+    5. [Recursion Example](#functions_with_recursion_example)
+    6. [Call by value and reference](#call_by_val_ref)
+    7. [Scope](#scope_in_c)
 
 ## Basic Of C Language <a name="basic_of_c_language"></a>
 - C is a general-purpose programming language created by Dennis Ritchie at the Bell Laboratories in the early 1970s.
@@ -205,3 +213,304 @@ int main()
 | %ld               | Long decimal integer                |
 | %x                | Hexadecimal integer                 |
 | %p                | Print memory address in the hex.    |
+
+## Function in C <a name="function_in_c"></a>
+- A function is a group of statements that together perform a specific task.
+- Every C program has at least one function, which is main(). 
+- A function declaration tells the compiler about a function's name, return type, and parameters.
+- A function definition provides the actual body of the function.
+- A function can also be referred as a method or a sub-routine or a procedure, etc
+
+### Types of function <a name="types_of_function"></a>
+    - [Standard library functions](#stdlib)
+    - [User-defined function](#user-defined)
+
+### Standard library functions <a name="stdlib"></a>
+- The standard library functions are built-in functions in C programming.
+- These functions are defined in header files.
+- **Example:** `scanf()`, `printf()`, `gets()`, `puts()`, `ceil()`, `floor()`
+
+### User-defined functions <a name="user-defined"></a>
+- You can also create functions as per your need.
+- Such functions created by the user are known as user-defined functions.
+
+### Features of function <a name="features_of_function"></a>
+- **Function declaration:** A function must be declared globally in a c program to tell the compiler about the function name, function parameters, and return type.
+- **Function call:** Function can be called from anywhere in the program. The parameter list must not differ in function calling and function declaration. We must pass the same number of functions as it is declared in the function declaration.
+- **Function definition:** It contains the actual statements which are to be executed. It is the most important aspect to which the control comes when the function is called. Here, we must notice that only one value can be returned from the function.
+
+> Function declaration, with and without parameters.
+```c
+int add();
+int add(int, int);
+int add(int a, int b);
+```
+
+> Function call, with and without parameters.
+```c
+add();
+add(10, 20);
+```
+
+> Function definition, with and without parameters.
+```c
+int add(int a, int b)
+{
+    return a+b;
+}
+```
+
+### Writing Function Code <a name="function_code"></a>
+- [Function Basics](#f_1)
+- [Armstrong](#f_2)
+- [Convert time in minutes](#f_3)
+
+### Function basic <a name="f_1"></a>
+```c
+#include <stdio.h>
+
+int add(int, int); // function declaration
+
+int main()
+{
+    int result = add(10, 20); // function call
+    printf("%d\n", result);
+
+    return 0;
+}
+
+int add(int a, int b) // function definition
+{
+    return a + b;
+}
+```
+
+### Armstrong number <a name="f_2"></a>
+```c
+#include <stdio.h>
+#include <math.h>
+
+int armstrong(int n)
+{
+    int length = 0, lc = n;
+    while (lc != 0)
+    {
+        length++;
+        lc /= 10;
+    }
+
+    int res = 0, nc = n;
+    while (nc != 0)
+    {
+        int rem = nc % 10;
+        res = res + ((int)pow((double)rem, (double)length));
+        nc /= 10;
+    }
+
+    return (res == n);
+}
+
+int main()
+{
+    int n;
+    printf("Number: ");
+    scanf("%d", &n);
+    int res = armstrong(n);
+    if (res) printf("%d is armstrong.\n", n);
+    else printf("%d is not armstrong.\n", n);
+}
+```
+
+### Convert time in minutes <a name="f_3"></a>
+```c
+#include <stdio.h>
+
+int convert_time_in_mins(int hrs, int minutes);
+int main()
+{
+    int hrs, minutes, total_mins;
+
+    printf("Enter hours and minutes: ");
+    scanf("%d%d", &hrs, &minutes);
+    total_mins = convert_time_in_mins(hrs, minutes);
+    printf("Total minutes = %d\n", total_mins);
+
+    return 0;
+}
+
+int convert_time_in_mins(int hrs, int minutes)
+{
+    int mins;
+    mins = hrs * 60 + minutes;
+    return mins;
+}
+```
+
+### Recursion <a name="functions_with_recursion"></a>
+- Recursion is the technique of making a function call itself.
+- It also allocates memory via calling itself, into the stack.
+
+### Recursion Example <a name="functions_with_recursion_example"></a>
+- [Factorial](#fr_1)
+- [Fibonacci](#fr_2)
+- [Sum](#fr_3)
+
+### Factorial <a name="fr_1"></a>
+```c
+#include <stdio.h>
+
+int fact(int n)
+{
+    if (n <= 1) return 1;
+    return n * fact(n - 1);
+}
+
+int main(void)
+{
+    int n;
+
+    printf("Enter number: ");
+    scanf("%d", &n);
+
+    printf("%d\n", fact(n));
+
+    return 0;
+}
+```
+
+### Fibonacci <a name="fr_2"></a>
+```c
+#include <stdio.h>
+
+int fib(int n)
+{
+    if (n <= 1) return n;
+    return fib(n - 1) + fib(n - 2);
+}
+
+int main(void)
+{
+    int a = 6;
+
+    printf("%d\n", fib(a));
+
+    int f = 0, s = 1;
+
+    for (int i = 0; i <= a; i++)
+    {
+        printf("%d ", f);
+
+        int n = f + s;
+        f = s;
+        s = n;
+    }
+
+    return 0;
+}
+```
+
+### Sum <a name="fr_3"></a>
+```c
+#include <stdio.h>
+
+int sum(int n)
+{
+    if (n == 0) return 0;
+    return n * sum(n - 1);
+}
+
+int main()
+{
+    int n;
+
+    printf("Enter number: ");
+    scanf("%d", &n);
+
+    printf("%d\n", sum(n));
+
+    return 0;
+}
+```
+
+### C Function Calling Methods <a name="call_by_val_ref"></a>
+- Functions can be invoked in two ways: Call by Value or Call by Reference.
+
+- [Call by value](#call_by_value)
+- [Call by reference](#call_by_ref)
+
+### Call by Value <a name="call_by_value"></a>
+- In this parameter passing method, values of actual parameters are copied to function’s formal parameters.
+- Any changes made inside functions are not reflected in actual parameters of the caller.
+
+```c
+#include <stdio.h>
+
+void increment_val(int n)
+{
+    n++;
+    printf("increment_val(): %d\n", n);
+}
+
+int main()
+{
+    int n = 10;
+
+    printf("main(): %d\n", n);
+    increment_val(n);
+    printf("main(): %d\n", n);
+}
+```
+
+### Call by reference <a name="call_by_ref"></a>
+- Both the actual and formal parameters refer to the same locations
+- Any changes made inside the function are actually reflected in actual parameters of the caller.
+- `*` to initiate pointer, `&` to get address.
+
+```c
+int a = 10;
+int *ptr = &a;
+
+a = 20;     // a = 20
+*a = 10;    // err: cannot derefrence, because `a` is a variable not a pointer.
+ptr = 233;  // it'll change the address that ptr was locating to.
+*ptr = 30;  // a = 30;
+```
+
+```c
+#include <stdio.h>
+
+void increment_ptr(int *n)
+{
+    *n += 1;
+    printf("increment_ptr(): %d\n", *n);
+}
+
+int main()
+{
+    int n = 10;
+
+    printf("\nmain(): %d\n", n);
+    increment_ptr(&n);
+    printf("main(): %d\n", n);
+}
+```
+
+### Scope <a name="scope_in_c"></a>
+- **Local Variables:**
+- Variables that are declared inside a function or block are called local variables.
+- They can be used only by statements that are inside that function or block of code.
+- Local variables are not known to functions outside their own.
+
+- **Global Variables:**
+- Global variables are defined outside a function, usually on top of the program.
+- Global variables hold their values throughout the lifetime of your program and they can be accessed inside any of the functions defined for the program.
+
+```c
+int a = 10; // global
+
+int main()
+{
+    int b = a; // local
+}
+
+```
