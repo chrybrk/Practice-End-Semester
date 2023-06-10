@@ -32,22 +32,26 @@ int main()
 > `0, "something"` they are litrals, integer and string.
 
 ### Keywords <a name="keywords"></a>
-| auto     | double   | int      | struct   |
-| break    | else     | long     | switch   |
-| case     | enum     | register | union    |
+| keywords |
+|----------|
+| auto     |
+| double   |
+| int      |
+| struct   |
+| break    |
+| else     |
+| long     |
+| switch   |
+| case     |
+| enum     |
+| register |
+| union    |
 
 ### interpreter vs compiler <a name="interpreter_vs_compiler"></a>
-|               Interpreter             |               Compiler                |
-|---------------------------------------|---------------------------------------|
-|  Translates program one statement     |  Scans the entire program and         |
-|  at a time.                           |  translates it as a whole into        |
-|                                       |  machine code.                        |
-|                                       |                                       |
-|  Interpreters usually take less       |  Compilers usually take a large       |
-|  amount of time to analyze the        |  amount of time to analyze the        |
-|  source code. However, the overall    |  source code. However, the overall    |
-|  execution time is comparatively      |  execution time is comparatively      |
-|  slower than compilers.               |  faster than compilers.               |
+| Interpreter                                                                                                                                           | Compiler                                                                                                                                                 |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Translates program one statement at a time.                                                                                                           | Scans the entire program and translates it as a whole into machine code.                                                                                 |
+| Interpreters usually take less amount of time to analyze the source code. However, the overall execution time is comparatively slower than compilers. | Compilers usually take a large amount of time to analyze the source code. However, the overall execution time is comparatively faster than interpreters. |
 
 ### Operators <a name="basic_operator"></a>
 |   Operator |                  Description             |           Example         |
