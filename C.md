@@ -1,23 +1,30 @@
 # Table of contents
 1. [Basic of C Language](#basic_of_c_language)
-    1. [Keywords](#keywords)
-    2. [Interpreter vs Compiler](#interpreter_vs_compiler)
-    3. [Operator](#basic_operator)
-    4. [Writing C code](#c_code_basic)
-    5. [Control Statement](#basic_control_statement)
-    6. [if-statement](#basic_control_statement_if)
-    7. [loop-statement](#basic_control_statement_loop)
-    8. [switch-statement](#basic_control_statement_switch)
-    9. [break and continue](#basic_control_statement_break_continue)
-    10. [Format Specifiers](#basic_format_specifiers)
+    - [Keywords](#keywords)
+    - [Interpreter vs Compiler](#interpreter_vs_compiler)
+    - [Operator](#basic_operator)
+    - [Writing C code](#c_code_basic)
+    - [Control Statement](#basic_control_statement)
+    - [if-statement](#basic_control_statement_if)
+    - [loop-statement](#basic_control_statement_loop)
+    - [switch-statement](#basic_control_statement_switch)
+    - [break and continue](#basic_control_statement_break_continue)
+    - [Format Specifiers](#basic_format_specifiers)
 2. [Function in C](#function_in_c)
-    1. [Types of functions](#types_of_function)
-    2. [Function Features](#features_of_function)
-    3. [Writing Function Code](#function_code)
-    4. [Recursion](#functions_with_recursion)
-    5. [Recursion Example](#functions_with_recursion_example)
-    6. [Call by value and reference](#call_by_val_ref)
-    7. [Scope](#scope_in_c)
+    - [Types of functions](#types_of_function)
+    - [Function Features](#features_of_function)
+    - [Writing Function Code](#function_code)
+    - [Recursion](#functions_with_recursion)
+    - [Recursion Example](#functions_with_recursion_example)
+    - [Call by value and reference](#call_by_val_ref)
+    - [Scope](#scope_in_c)
+3. [Arrays in C](#arrays_in_c)
+    - [Implementing arrays](#impl_arrays)
+    - [Passing array to functions](#array_func)
+    - [Writing Array code](#array_code)
+    - [2D](#array_2d)
+    - [Assigning Values to a 2D Array](#array_2d_assign)
+    - [Writing 2D array code](#array_2d_code)
 
 ## Basic Of C Language <a name="basic_of_c_language"></a>
 - C is a general-purpose programming language created by Dennis Ritchie at the Bell Laboratories in the early 1970s.
@@ -512,5 +519,347 @@ int main()
 {
     int b = a; // local
 }
+```
 
+## Arrays <a name="arrays_in_c"></a>
+- It is a collection of similar type of data which can be either of int, float, double, char (String), etc.
+- All the data types must be same. 
+- For example, we can't have an array in which some of the data are integer and some are float. 
+
+### Implementing Arrays <a name="impl_arrays"></a>
+- [How to declare an array?](#array_decl)
+- [Index of an array](#array_idx)
+- [Printing element of an array](#array_printing)
+
+### How to declare an array? <a name="array_decl"></a>
+- We need to give the size of the array because the complier needs to allocate space in the memory which is not possible without knowing the size.
+- Compiler determines the size required for an array with the help of the number of elements of an array and the size of the data type present in the array.
+```c
+int array[];                    // it won't work as compiler yell to specify size.
+int array[5];                   // it'll define array with size of 5.
+int array[] = { 10, 20, 30 };   // compiler automatically define size, 3.
+int array[3] = { 10, 20, 30 };  // here, we deifine size and elements.
+int array[100] = { 0 };         // it'll 100 elements with 0s.
+int *array;                     // we can also use pointer as an place of defining array.
+```
+
+### Index of an array <a name="array_idx"></a>
+```c
+int array[5] = { 10, 20, 30, 40, 50 };
+```
+
+| **ELEMENTS**  | 10 | 20 | 30 | 40 | 50 |
+|-----------|----|----|----|----|----|
+| **INDEX**     | 0  | 1  | 2  | 3  | 4  |
+
+* accessing elements: `arrray[ index ]`.
+
+### Printing element of an array <a name="array_printing"></a>
+
+```c
+#include <stdio.h>
+
+int main()
+{
+    int array[5] = { 10, 20, 30, 40, 50 };
+    for (int i = 0; i < 5; i++) printf("%d ", array[i]);
+    printf("\n");
+}
+```
+
+### Array passing to functions <a name="array_func"></a>
+```c
+#include <stdio.h>
+
+void print(int size, int array[size]);  // size is defined with the array.
+void print(int array[]);                // size is not defined, either it should be global or known by the programmer.
+void print(int *array, int size);       // pointered array, same as string.
+
+int main()
+{
+    int array[] = { 10, 20, 30, 40, 50 };
+    print(5, array);
+    print(array);
+    print(array, 5);
+}
+```
+
+### Writing Array Code <a name="array_code"></a>
+- [Linear Search](#array_lnsch)
+- [Bubble Sorting](#array_bblsort)
+- [Reverse](#array_reverse)
+- [Find min max](#array_minmax)
+
+### Linear Search <a name="array_lnsch"></a>
+```c
+#include <stdio.h>
+
+int main()
+{
+    int array[] = { 10, 20, 30, 40, 50 };
+    int target = 30;
+    
+    for (int i = 0; i < 5; i++)
+    {
+        if (array[i] == target)
+        {
+            printf("found value at %d.", i);
+            break;
+        }
+    }
+
+    return 0;
+}
+```
+
+### Bubble Sorting <a name="array_bblsort"></a>
+```c
+#include <stdio.h>
+
+int main()
+{
+    int array[5] = { 4, 1, 3, 5, 2 };
+
+    printf("values before: ");
+    for (int i = 0; i < 5; i++) printf("%d ", array[i]);
+
+    for (int i = 0; i < 5; i++)
+        for (int j = 0; j < 5; j++)
+            if (array[i] < array[j])
+            {
+                int temp = array[i];
+                array[i] = array[j], array[j] = temp;
+            }
+
+    printf("values after: ");
+    for (int i = 0; i < 5; i++) printf("%d ", array[i]);
+}
+```
+### Reverse <a name="array_reverse"></a>
+```c
+#include <stdio.h>
+
+int main()
+{
+    int array[] = { 10, 20, 30, 40, 50 };
+
+    printf("values before: ");
+    for (int i = 0; i < 5; i++) printf("%d ", array[i]);
+
+    for (int i = 0; i < ( 5 / 2 ); i++)
+    {
+        int temp = array[5 - i - 1];
+        array[5 - i - 1] = array[i];
+        array[i] = temp;
+    }
+
+    printf("\nvalues after: ");
+    for (int i = 0; i < 5; i++) printf("%d ", array[i]);
+
+    return 0;
+}
+```
+### Find min max <a name="array_minmax"></a>
+```c
+#include <stdio.h>
+
+int main()
+{
+    int a[10];
+
+    printf("Enter 10 values: ");
+    for (int i = 0; i < 10; i++) scanf("%d", &a[i]);
+
+    int min = a[0], max = a[0];
+    int imax = 0, jmin = 0;
+    for (int i = 0; i < 10; i++)
+    {
+        if (min > a[i]) min = a[i], imax = i;
+        if (max < a[i]) max = a[i], jmin = i;
+    }
+
+    printf("min: %d at position: %d, max: %d at position: %d\n",
+            min, imax, max, jmin);
+
+    return 0;
+}
+```
+
+### 2-D <a name="array_2d"></a>
+- 2D array are generally known as, `Matrix`.
+
+```
+--                          --
+|    10      20      30      |
+|    40      50      60      |
+|    43      23      54      |
+--                          --
+```
+
+```c
+int array[3][3] = {
+    { 10, 20, 30 },
+    { 40, 50, 60 },
+    { 43, 23, 54 }
+};
+```
+
+|      r  o  w      |       clm0        |       clm1        |       clm2        |
+|-------------------|-------------------|-------------------|-------------------|
+|        row0       |        10         |        20         |        30         |
+|        row1       |        40         |        50         |        60         |
+|        row2       |        43         |        23         |        54         |
+
+### Assigning Values to a 2D Array <a name="array_2d_assign"></a>
+- Same as in one-dimensional array, we can assign values to the elements of a 2-dimensional array in 2 ways as well.
+- `array[0][0]` we can assign each elements.
+- First index is for row, and second one is for column.
+
+```c
+int array[3][3] = { 0 };
+array[0][2] = 10;
+array[2][1] = 20;
+```
+
+```
+--                          --
+|     0       0      10      |
+|     0       0       0      |
+|     0      20       0      |
+--                          --
+```
+
+### Array 2D Code <a name="array_2d_code"></a>
+- [2D array implementation](#2d_array_impl)
+- [2D array addition](#2d_array_impl_add)
+- [2D array multiplication](#2d_array_impl_mul)
+
+### 2D array implementation <a name="2d_array_impl"></a>
+```c
+#include <stdio.h>
+
+int main()
+{
+    int m, n;
+
+    printf("M x N: ");
+    scanf("%d%d", &m, &n);
+
+    int array[m][n];
+
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++) scanf("%d", &array[i][j]);
+    }
+
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++) printf("%d ", array[i][j]);
+        printf("\n");
+    }
+}
+```
+
+### 2D array addition <a name="2d_array_impl_add"></a>
+```c
+#include <stdio.h>
+
+int main()
+{
+    int m, n;
+
+    printf("M x N: ");
+    scanf("%d%d", &m, &n);
+
+    int mat1[m][n];
+    int mat2[m][n];
+    int mat3[m][n];
+
+    printf("Enter elements for matrix one: %d", m * n);
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++) scanf("%d", &mat1[i][j]);
+    }
+
+    printf("Enter elements for matrix one: %d", m * n);
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++) scanf("%d", &mat2[i][j]);
+    }
+
+    printf("printing elements for matrix one: %d", m * n);
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++) printf("%d ", mat1[i][j]);
+        printf("\n");
+    }
+
+    printf("printing elements for matrix two: %d", m * n);
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++) printf("%d ", mat2[i][j]);
+        printf("\n");
+    }
+
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++) mat3[i][j] = mat1[i][j] + mat2[i][j];
+    }
+
+    printf("printing elements for result matrix: %d", m * n);
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++) printf("%d ", mat3[i][j]);
+        printf("\n");
+    }
+}
+```
+
+### 2D array multiplication <a name="2d_array_impl_mul"></a>
+```c
+#include <stdio.h>
+
+int main()
+{
+    int m, n, p, q;
+
+    printf("MxN: "); scanf("%d%d", &m, &n);
+    printf("PxQ: "); scanf("%d%d", &p, &q);
+
+    int a[m][n], b[p][q], c[m][q];
+
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            printf("a[%d][%d]: ", i, j); scanf("%d", &a[i][j]);
+        }
+    }
+
+    for (int i = 0; i < p; i++)
+    {
+        for (int j = 0; j < q; j++)
+        {
+            printf("b[%d][%d]: ", i, j); scanf("%d", &b[i][j]);
+        }
+    }
+
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < q; j++)
+        {
+            c[i][j] = 0;
+            for (int k = 0; k < p; k++)
+                c[i][j] += a[i][k] * b[k][j];
+        }
+    }
+
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < q; j++) printf("%d ", c[i][j]);
+        printf("\n");
+    }
+
+    return 0;
+}
 ```
