@@ -31,6 +31,10 @@
     - [Passing structure to functions](#structure_passing_to_function)
     - [Nested structure](#structure_nested)
     - [Writing Structure Code](#structure_code)
+5. [Strings](#strings_in_c)
+    - [Passing Strings to Functions](#strings_passing_to_function)
+    - [Predefined string functions](#string_funtions)
+    - [Writing string functions](#string_code)
 
 ## Basic Of C Language <a name="basic_of_c_language"></a>
 - C is a general-purpose programming language created by Dennis Ritchie at the Bell Laboratories in the early 1970s.
@@ -973,6 +977,126 @@ int main()
     {
         printf("name: %s, maths: %d, physics: %d, cs: %d, avg: %d\n", v[i].name, v[i].maths, v[i].physics, v[i].cs, ((v[i].maths + v[i].physics + v[i].cs) / 3));
     }
+    return 0;
+}
+```
+
+## Strings <a name="strings_in_c"></a>
+- Strings in C language are an array of characters ended with null characters (‘\0’).
+- The null character at the end of a string indicates its end and the strings are always enclosed by double quotes.
+- In C language characters are enclosed by single quotes.
+
+```c
+char string[6]  = { ‘r’,’a’,’h’,’u’,’l’,’\0’ };
+char string[6]  = "rahul";
+char string[]   = "rahul";
+char *string    = "rahul";
+```
+
+- There is a minor difference between the declarations of the strings in both of the above statements.
+- Like when we declare char as string[10], 10 bytes of memory space gets allocated to hold the 10 values of string, while when we declare it like string[] then memory gets allocated at the time of execution of the program.
+
+### Passing Strings to Functions <a name="strings_passing_to_function"></a>
+- This is done in the same as we do with other arrays. The only difference is that this is an array of characters.
+
+```c
+void print(char *string);
+int main()
+{
+    char *name = "rahul";
+    print(name);
+}
+```
+
+### Predefined string functions <a name="string_funtions"></a>
+- We can perform different kinds of string functions like joining of 2 strings, comparing one string with another or finding the length of the string.
+
+| Function | Use                                      |
+|----------|------------------------------------------|
+| strlen   | calculates the length of string          |
+| strcat   | Appends one string at the end of another |
+| strcpy   | Copies a string into another             |
+| strcmp   | Compares two strings                     |
+
+| Function | Checks whether entered character is      |
+|----------|------------------------------------------|
+| isalpha  | An alphabet (or) not                     |
+| isdigit  | A digit (or) not                         |
+| isspace  | A space, a newline (or) tab              |
+| ispunct  | A special symbol (or) not                |
+| islower  | A lower case letter of alphabet          |
+| isupper  | An upper case letter of alphabet         |
+
+```c
+char a[] = "hello";
+int size = strlen(a);
+char b[size];
+strcpy(b, "world");
+strcat(b, a);
+int c = strcmp(a, b);
+```
+
+### Writing string code <a name="string_code"></a>
+- [Using string functions](#string_functions)
+- [Using string boolean function](#string_bool_functions)
+
+### Using string functions <a name="string_functions"></a>
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char *a = "Hello, ";
+    char *b = "World!";
+
+    printf("%s, %s\n", a, b);
+
+    int a_size = strlen(a);
+    int b_size = strlen(b);
+
+    printf("Length of a: %d, Length of b: %d\n", a_size, b_size);
+
+    char c[ a_size + b_size ]; // `c` is a size of a + b;
+
+    strcpy(c, a); // `c` <- `a`, copy from a to c.
+    printf("%s\n", c);
+
+    strcat(c, b); // `c` <- `b`, join data from a to c.
+    printf("%s\n", c);
+
+    if ( strcmp(a, b) ) printf("They are not equal.");
+    else printf("They are equal.");
+
+    return 0;
+}
+```
+
+### Using string boolean function <a name="string_bool_functions"></a>
+```c
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main()
+{
+    char *string = "Hello, World... testing 1... 2... 3...";
+
+    for (int i = 0; i < strlen(string); i++)
+    {
+        char e = string[i];
+
+        if (isupper(e)) printf("`%c`, is upper. ", e);
+        if (islower(e)) printf("`%c`, is lower. ", e);
+        if (isalpha(e)) printf("`%c`, is alpha. ", e);
+        if (isdigit(e)) printf("`%c`, is digit. ", e);
+        if (isspace(e)) printf("`%c`, is space. ", e);
+        if (ispunct(e)) printf("`%c`, is punct. ", e);
+        if (isalnum(e)) printf("`%c`, is alnum. ", e);
+
+        printf("\n");
+    }
+
     return 0;
 }
 ```
