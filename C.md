@@ -35,6 +35,12 @@
     - [Passing Strings to Functions](#strings_passing_to_function)
     - [Predefined string functions](#string_funtions)
     - [Writing string functions](#string_code)
+6. [File Handling](#file_handling_in_c)
+    - [Why do we need file handling?](#file_handling_need)
+    - [Types of files](#file_handling_type)
+    - [File Handling Functions](#file_handling_function)
+    - [Opening Modes](#file_handling_mode)
+    - [Writing Code](#file_handling_code)
 
 ## Basic Of C Language <a name="basic_of_c_language"></a>
 - C is a general-purpose programming language created by Dennis Ritchie at the Bell Laboratories in the early 1970s.
@@ -1096,6 +1102,119 @@ int main()
 
         printf("\n");
     }
+
+    return 0;
+}
+```
+
+## File Handling <a name="file_handling_in_c"></a>
+File handling refers to the method of storing data in the C program in the form of an output or input that might have been generated while running a C program in a data file, i.e., a binary file or a text file for future analysis and reference in that very program.
+
+### Why Do We Need File Handling in C? <a name="file_handling_need"></a>
+- There are times when the output generated out of a program after its compilation and running do not serve our intended purpose.
+- In such cases, we might want to check the program’s output various times.
+- Now, compiling and running the very same program multiple times becomes a tedious task for any programmer.
+- It is exactly where file handling becomes useful.
+
+- **Reusability:** File handling allows us to preserve the information/data generated after we run the program.
+- **Saves Time:** Some programs might require a large amount of input from their users. In such cases, file handling allows you to easily access a part of a code using individual commands.
+- **Commendable storage capacity:** When storing data in files, you can leave behind the worry of storing all the info in bulk in any program.
+- **Portability:** The contents available in any file can be transferred to another one without any data loss in the computer system. This saves a lot of effort and minimises the risk of flawed coding.
+
+### Types of Files in a C <a name="file_handling_type"></a>
+- [Text file](#file_handling_text)
+- [Binary file](#file_handling_binary)
+
+### Text file <a name="file_handling_text"></a>
+- The text files are the most basic/simplest types of files that a user can create in a C program.
+- We create the text files using an extension `.txt` with the help of a simple text editor.
+- In general, we can use notepads for the creation of `.txt` files.
+- These files store info internally in ASCII character format, but when we open these files, the content/text opens in a human-readable form.
+
+### Text binary <a name="file_handling_binary"></a>
+- The binary files store info and data in the binary format of 0’s and 1’s (the binary number system).
+- Thus, the files occupy comparatively lesser space in the storage.
+- In simpler words, the binary files store data and info the same way a computer holds the info in its memory.
+- Thus, it can be accessed very easily as compared to a text file.
+
+### File Handling Functions <a name="file_handling_function"></a>
+- We can use a variety of functions in order to open a file, read it, write more data, create a new file, close or delete a file, search for a file, etc.
+
+| **Description of Function**                                    | **Function in Use**     |
+|------------------------------------------------------------|---------------------|
+| used to open an existing file or a new file                | fopen()             |
+| writing data into an available file                        | fprintf()           |
+| reading the data available in a file                       | fscanf()            |
+| writing any character into the program file                | fputc()             |
+| reading the character from an available file               | fgetc()             |
+| used to close the program file                             | fclose()            |
+| used to set the file pointer to the intended file position | fseek()             |
+
+### Opening Modes <a name="file_handling_mode"></a>
+| Mode in Program | Meaning of Mode                                                                                                                                  | When the file doesn’t exist                                                                                                                      |
+|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| r               | Open a file for reading the content.                                                                                                             | In case the file doesn’t exist in the location, then fopen() will return NULL                                                                    |
+| rb              | Open a file for reading the content in binary mode.                                                                                              | In case the file doesn’t exist in the location, then fopen() will return NULL.                                                                   |
+| w               | Open a file for writing the content.                                                                                                             | In case the file exists, its contents are overwritten. In case the file doesn’t exist in the location, then it will create a new file.           |
+| wb              | Open a file for writing the content in binary mode.                                                                                              | In case the file exists, then its contents will get overwritten. In case the file doesn’t exist in the location, then it will create a new file. |
+| a               | Open a file for appending the content. Meaning, the data of the program is added to the file’s end in a program.                                 | In case the file doesn’t exist in the location, then it will create a new file.                                                                  |
+| ab              | Open a file for appending the content in binary mode. Meaning, the data of the program is added to the file’s end in a program in a binary mode. | In case the file doesn’t exist in the location, then it will create a new file.                                                                  |
+| r+              | Open a file for both writing and reading the content.                                                                                            | In case the file doesn’t exist in the location, then fopen() will return NULL.                                                                   |
+| rb+             | Open a file for both writing and reading the content in binary mode.                                                                             | In case the file doesn’t exist in the location, then fopen() will return NULL.                                                                   |
+| w+              | Open a file for both writing and reading.                                                                                                        | In case the file exists, its contents are overwritten. In case the file doesn’t exist in the location, then it will create a new file            |
+| wb+             | Open a file for both writing and reading the content in binary mode.                                                                             | In case the file exists, its contents are overwritten. In case the file doesn’t exist in the location, then it will create a new file.           |
+| a+              | Open a file for both appending and reading the content.                                                                                          | In case the file doesn’t exist in the location, then it will create a new file.                                                                  |
+| ab+             | Open a file for both appending and reading the content in binary mode.                                                                           | In case the file doesn’t exist in the location, then it will create a new file.                                                                  |
+
+### Writing Code <a name="file_handling_code"></a>
+- [Reading information from a text file](#file_handling_code_p1)
+- [Writing data to the text file in a program](#file_handling_code_p2)
+
+### Reading File <a name="file_handling_code_p1"></a>
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int val;
+    FILE *fptr;
+    if ((fptr = fopen("main.txt","r")) == NULL)
+    {
+        printf(“Visible error detected. Cannot open the file!”);
+        exit(1);
+    }
+    fscanf(fptr,”%d”, &val);
+    printf(“The value of the integer n is=%d”, val);
+
+    fclose(fptr);
+
+    return 0;
+}
+```
+
+### Writing File <a name="file_handling_code_p2"></a>
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int val;
+    FILE *fptr;
+
+    if ((fptr = fopen("main.txt","w")) == NULL)
+    {
+        printf(“File type invalid!”);
+        exit(1);
+    }
+
+    printf(“Please enter the val: “);
+    scanf(“%d”,&val);
+
+    fprintf(fptr,”%d”,val);
+
+    fclose(fptr);
 
     return 0;
 }
