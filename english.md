@@ -179,7 +179,7 @@ Passive Voice –  When the action expressed by the verb is received by the subj
 - Ex: Eggs are laid by hens.
 
 
-## Commnication Barries
+## Commnication
 
 ### Cycle
 * **Sender:** The sender initiates a conversation, encodes the message, and moves it forward via an appropriate channel.
