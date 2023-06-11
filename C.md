@@ -229,7 +229,7 @@ int main()
 - [Full Pyramid Pattern](#blp_3)
 - [Inverted Full Pyramid Pattern](#blp_4)
 
-<a name="blp_1"></a>
+### Left Pyramid Pattern <a name="blp_1"></a>
 ```
 *
 * * 
@@ -256,7 +256,7 @@ int main()
 }
 ```
 
-<a name="blp_2"></a>
+### Right Pyramid Pattern <a name="blp_2"></a>
 ```
         *
       * *
@@ -285,7 +285,7 @@ int main()
 }
 ```
 
-<a name="blp_3"></a>
+### Full Pyramid Pattern <a name="blp_3"></a>
 ```
          *
        * * *      
@@ -311,6 +311,35 @@ int main()
 		printf("\n");
 	}
 	return 0;
+}
+```
+
+### Inverted Full Pyramid Pattern <a name="blp_4"></a>
+```
+* * * * * * * * *
+  * * * * * * *  
+    * * * * *    
+      * * *     
+        *        
+```
+
+```c
+#include <stdio.h>
+
+int main()
+{
+	int rows = 5;
+
+	for (int i = 0; i < rows; i++) {
+
+		for (int j = 0; j < 2 * i; j++) {
+			printf(" ");
+		}
+		for (int k = 0; k < 2 * (rows - i) - 1; k++) {
+			printf("* ");
+		}
+		printf("\n");
+	}
 }
 ```
 
