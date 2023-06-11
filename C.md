@@ -41,6 +41,7 @@
     - [File Handling Functions](#file_handling_function)
     - [Opening Modes](#file_handling_mode)
     - [Writing Code](#file_handling_code)
+7. [Questions](#questions)
 
 ## Basic Of C Language <a name="basic_of_c_language"></a>
 - C is a general-purpose programming language created by Dennis Ritchie at the Bell Laboratories in the early 1970s.
@@ -988,12 +989,12 @@ int main()
 ```
 
 ## Strings <a name="strings_in_c"></a>
-- Strings in C language are an array of characters ended with null characters (‘\0’).
+- Strings in C language are an array of characters ended with null characters `('\0')`.
 - The null character at the end of a string indicates its end and the strings are always enclosed by double quotes.
 - In C language characters are enclosed by single quotes.
 
 ```c
-char string[6]  = { ‘r’,’a’,’h’,’u’,’l’,’\0’ };
+char string[6]  = { 'r','a','h','u','l','\0' };
 char string[6]  = "rahul";
 char string[]   = "rahul";
 char *string    = "rahul";
@@ -1177,17 +1178,22 @@ File handling refers to the method of storing data in the C program in the form 
 
 int main()
 {
-    int val;
-    FILE *fptr;
-    if ((fptr = fopen("main.txt","r")) == NULL)
-    {
-        printf(“Visible error detected. Cannot open the file!”);
-        exit(1);
-    }
-    fscanf(fptr,”%d”, &val);
-    printf(“The value of the integer n is=%d”, val);
+    FILE *file = fopen("a.txt", "r"); // read file, with `r` mode.
 
-    fclose(fptr);
+    if (file == NULL) printf("err: file error."), exit(0); // check if it's null
+
+    int len; // length of the file.
+
+    fseek(file, 0L, SEEK_END);  // take cursor to the end.
+    len = ftell(file);          // get from 0 to the end `n`, which will be length of the file.
+    fseek(file, 0L, SEEK_SET);  // take cursor to the start again.
+
+    char buffer[len];           // define buffer of that `len` size.
+    fread(buffer, sizeof(char), len, file); // copy data from file to the buffer.
+
+    printf("%s\n", buffer); // print as string.
+
+    fclose(file); // close the file
 
     return 0;
 }
@@ -1196,26 +1202,53 @@ int main()
 ### Writing File <a name="file_handling_code_p2"></a>
 ```c
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 
 int main()
 {
-    int val;
-    FILE *fptr;
+    FILE *file = fopen("a.txt", "w"); // read file, with `r` mode.
 
-    if ((fptr = fopen("main.txt","w")) == NULL)
-    {
-        printf(“File type invalid!”);
-        exit(1);
-    }
+    if (file == NULL) printf("err: file error."), exit(0); // check if it's null
 
-    printf(“Please enter the val: “);
-    scanf(“%d”,&val);
+    char write_out[] = "something something";   // define data
+    int len = strlen(write_out);                // define size
+    
+    fwrite(write_out, sizeof(char), len, file); // write data into the file.
 
-    fprintf(fptr,”%d”,val);
-
-    fclose(fptr);
+    fclose(file); // close the file
 
     return 0;
 }
 ```
+
+## Questions <a name="questions"></a>
+- What is the difference between Control Statement and Selection Statement?
+- How to skip an iteration?
+- Define `break` and `continue` with example?
+- List out format specifier with definition.
+- Types of functions, explain in breif with example.
+- Write a program for armstrong number.
+- What is Recursion, difference between Recursion and Loop?
+- Write a program for Fibonacci.
+- What is call by reference? and how it's different from call by value?
+- Define scope with example?
+- Output of the code.
+```c
+int num[] = { 5, 3, 4, 2 };
+int a = num[4];
+printf("%d\n", a);
+```
+- What is 2D array, write code for 2D array.
+- What is structure in C, define nested structure.
+- Write code for passing array to the function.
+- List out string functions, with example.
+- What does `strcmp` do?
+- What is file handling?
+- Why do we need file handling?
+- Types of files?
+- List out modes in file handling in C.
+- Difference between `fprintf()` and `printf()`.
+- Write code to read file.
+- Write code to write file.
+- Functions in file handling.
