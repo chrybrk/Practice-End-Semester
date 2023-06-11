@@ -147,6 +147,26 @@ int main()
 }
 ```
 
+### ASCII Code Example (lower to upper, upper to lower) <a name="basic_ascii_code"></a>
+> *NOTE* minus for `lower to upper` and plus for `upper to lower`.
+```c
+#include <stdio.h>
+
+int main()
+{
+    char a = 'A';
+    char b = 'a';
+
+    // upper to lower, add
+    printf("%c\n", (char)(a + 32));
+
+    // lower to upper, minus
+    printf("%c\n", (char)(b - 32));
+
+    return 0;
+}
+```
+
 ### Control Statement <a name="basic_control_statement"></a>
 
 - Types Of Statements:
@@ -508,6 +528,8 @@ int main()
 ```
 
 ### Scope <a name="scope_in_c"></a>
+- A scope in any programming is a region of the program where a defined variable can have its existence and beyond that variable it cannot be accessed.
+
 - **Local Variables:**
 * Variables that are declared inside a function or block are called local variables.
 * They can be used only by statements that are inside that function or block of code.
