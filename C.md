@@ -8,6 +8,7 @@
     - [Control Statement](#basic_control_statement)
     - [if-statement](#basic_control_statement_if)
     - [loop-statement](#basic_control_statement_loop)
+    - [Pattern Loop Questions](#basic_loop_pattern)
     - [switch-statement](#basic_control_statement_switch)
     - [break and continue](#basic_control_statement_break_continue)
     - [Format Specifiers](#basic_format_specifiers)
@@ -179,7 +180,7 @@ int main()
 
 > Code to explain `if`, `while`, `do-while`, 'for', `nested-if`, `switch`.
 
-- `if` <a name="basic_control_statement_if"></a>
+### `if` <a name="basic_control_statement_if"></a>
 ```C
 #include <stdio.h>
 
@@ -199,7 +200,7 @@ int main()
 }
 ```
 
-- `loop` <a name="basic_control_statement_loop"></a>
+### `loop` <a name="basic_control_statement_loop"></a>
 ```C
 #include <stdio.h>
 
@@ -222,7 +223,98 @@ int main()
 }
 ```
 
-- `switch` <a name="basic_control_statement_switch"></a>
+### Pattern Loop Questions <a name="basic_loop_pattern"></a>
+- [Right Half Pyramid Pattern](#blp_1)
+- [Left Half Pyramid Pattern](#blp_2)
+- [Full Pyramid Pattern](#blp_3)
+- [Inverted Full Pyramid Pattern](#blp_4)
+
+<a name="blp_1"></a>
+```
+*
+* * 
+* * *
+* * * *
+* * * * *
+```
+
+```c
+#include <stdio.h>
+
+int main()
+{
+	int rows = 5;
+
+	for (int i = 0; i < rows; i++) {
+
+		for (int j = 0; j <= i; j++) {
+			printf("* ");
+		}
+		printf("\n");
+	}
+	return 0;
+}
+```
+
+<a name="blp_2"></a>
+```
+        *
+      * *
+    * * *
+  * * * *
+* * * * *
+```
+
+```c
+#include <stdio.h>
+
+int main()
+{
+	int rows = 5;
+
+	for (int i = 0; i < rows; i++) {
+		for (int j = 0; j < 2 * (rows - i) - 1; j++) {
+			printf(" ");
+		}
+		for (int k = 0; k <= i; k++) {
+			printf("* ");
+		}
+		printf("\n");
+	}
+	return 0;
+}
+```
+
+<a name="blp_3"></a>
+```
+         *
+       * * *      
+     * * * * *    
+   * * * * * * *  
+ * * * * * * * * *
+```
+
+```c
+#include <stdio.h>
+
+int main()
+{
+	int rows = 5;
+
+	for (int i = 0; i < rows; i++) {
+		for (int j = 0; j < 2 * (rows - i) - 1; j++) {
+			printf(" ");
+		}
+		for (int k = 0; k < 2 * i + 1; k++) {
+			printf("* ");
+		}
+		printf("\n");
+	}
+	return 0;
+}
+```
+
+### `switch` <a name="basic_control_statement_switch"></a>
 ```C
 #include <stdio.h>
 
