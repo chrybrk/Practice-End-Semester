@@ -4,6 +4,7 @@
     - [Interpreter vs Compiler](#interpreter_vs_compiler)
     - [Operator](#basic_operator)
     - [Writing C code](#c_code_basic)
+    - [ASCII Code Example](#basic_ascii_code)
     - [Control Statement](#basic_control_statement)
     - [if-statement](#basic_control_statement_if)
     - [loop-statement](#basic_control_statement_loop)
