@@ -415,19 +415,7 @@ int fib(int n)
 int main(void)
 {
     int a = 6;
-
     printf("%d\n", fib(a));
-
-    int f = 0, s = 1;
-
-    for (int i = 0; i <= a; i++)
-    {
-        printf("%d ", f);
-
-        int n = f + s;
-        f = s;
-        s = n;
-    }
 
     return 0;
 }
@@ -440,7 +428,7 @@ int main(void)
 int sum(int n)
 {
     if (n == 0) return 0;
-    return n * sum(n - 1);
+    return n + sum(n - 1);
 }
 
 int main()
