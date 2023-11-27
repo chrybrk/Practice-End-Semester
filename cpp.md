@@ -1,0 +1,266 @@
+# Table of contents
+
+1. [Introduction to C++](#unit1)
+    - [Concept of oops](#concept_of_oops)
+    - [Difference between oop and pop](#pop_vs_oop)
+    - [I/O Operators](#io_operator)
+    - [Scope Resolution](#scope)
+    - [Memory Management](#mem)
+
+2. [Functionality of C++](#unit2)
+    - [Functions](#functions)
+    - [Inline Function](#inline_function)
+    - [Default arguments](#def_args)
+    - [Function Overloading](#function_overloading)
+    - [Structure vs Class](#struct_vs_class)
+    - [Concept of Class and Object](#concept_of_class_and_object)
+    - [Friend Function](#friend_function)
+
+3. [More about Class](#unit3)
+    - [Constructor](#constructor)
+    - [Destructor](#destructor)
+    - [Opeartor Overloading](#op_overloading)
+
+4. [Inheritance](#unit4)
+    - [Define Inheritance](#def_inheritance)
+    - [Types](#types_of_inhert)
+    - [Private vs Public vs Protected](#mem_method)
+    - [Multiple level and Multiple Base Inheritance](#mul_lvl_base)
+    - [Abstract Class](#abstract)
+    - [Nesting inside class?](#nesting)
+
+## Introduction to C++ <a name="unit1"></a>
+
+1.  General Overview:
+    -   C++ is a general-purpose, high-performance programming language.
+    -   It was developed by Bjarne Stroustrup at Bell Labs in the early 1980s as an extension of the C programming language.
+
+2.  Object-Oriented Programming (OOP):
+    -   C++ supports object-oriented programming paradigm.
+    -   It allows for the creation and manipulation of objects, which are instances of user-defined classes.
+
+3.  Classes and Objects: <a name="concept_of_oops"></a>
+    -   Fundamental to C++ is the concept of classes and objects.
+    -   Classes define the blueprint for objects, encapsulating data and methods.
+
+4.  Inheritance:
+    -   C++ supports inheritance, allowing a class to inherit properties and behaviors from another class.
+    -   This promotes code reuse and the creation of a hierarchy of classes.
+
+5.  Polymorphism:
+    -   Polymorphism enables objects of different types to be treated as objects of a common base type.
+    -   It includes features like function overloading and virtual functions.
+
+6.  Encapsulation:
+    -   Encapsulation refers to the bundling of data and methods that operate on the data into a single unit (class).
+    -   It helps in data hiding and protecting the internal state of an object.
+
+7.  Abstraction:
+    -   Abstraction involves simplifying complex systems by modeling classes based on the essential properties and behaviors they share.
+    -   It allows the programmer to focus on the relevant details while ignoring unnecessary complexities.
+
+8.  Templates:
+    -   C++ supports templates, allowing for the creation of generic functions and classes.
+    -   This promotes code flexibility and reusability.
+
+9.  Memory Management:
+    -   C++ allows manual memory management using new and delete operators.
+    -   It also supports automatic memory management through features like smart pointers.
+
+### Difference between oop and pop <a name="pop_vs_oop"></a>
+
+| Object-Oriented Programming (OOP)                                             | Procedural Programming (POP)                                |
+|-------------------------------------------------------------------------------|-------------------------------------------------------------|
+| Objects, Classes, Encapsulation, Inheritance, Polymorphism                    | Procedures, Functions, Global Data                          |
+| Modeling real-world entities as objects and their interactions                | Sequences of actions, procedures, functions                 |
+| Emphasizes encapsulation into classes                                         | Relies on global data and functions                         |
+| Organized around objects and their interactions                               | Organized around procedures and functions                   |
+| Encourages modularity through classes and encapsulation                       | Uses functions for modularity                               |
+| Achieved through inheritance and composition                                  | Achieved through functions                                  |
+| Provides flexibility through features like inheritance and polymorphism       | Can be less flexible, especially with large codebases       |
+| Often considered more readable and maintainable, especially for large systems | May become harder to read and maintain as the program grows |
+<hr>
+
+### I/O Operators <a name="io_operator"></a>
+- In C++, input and output operations are performed using the input/output stream classes provided by the Standard Template Library (STL).
+- The most commonly used classes for input and output in C++ are `iostream`, `istream`, and `ostream`.
+- The primary stream objects are `cin` for input and `cout` for output.
+
+- **Example:**
+
+```cpp
+
+#include <iostream>
+
+int main()
+{
+    std::string name;
+
+    std::cin >> name;
+    std::cout << name;
+
+    return 0;
+}
+
+```
+
+- **IMPORTANT NOTE:** Also, know that, the flow of stream changes with the function you are using. `>>` for `cin` and `<<` for `cout`.
+
+
+### Scope Resolution <a name="scope"></a>
+
+- The scope resolution operator (::) is used to qualify names and access members within a specific scope.
+
+- [Global](#scope_0)
+- [Namespace](#scope_1)
+- [Defining Class Member Functions Outside the Class](#scope_2)
+
+- **Global** <a name="scope_0"></a>
+
+```cpp
+#include <iostream>
+
+int a = 10;
+
+int main()
+{
+    std::cout << ::a << std::endl;
+
+    return 0;
+}
+```
+
+- **Namespace** <a name="scope_1"></a>
+
+```cpp
+#include <iostream>
+
+namespace Box {
+    int size = 10;
+    std::string color = "pink";
+}
+
+int main()
+{
+    std::cout << Box::size << std::endl;
+    std::cout << Box::color << std::endl;
+
+    return 0;
+}
+```
+
+- **Defining Class Member Functions Outside the class** <a name="scope_2"></a>
+
+```cpp
+#include <iostream>
+
+class Box {
+    public:
+        int Size();
+        const std::string Color();
+};
+
+int Box::Size()
+{
+    return 100;
+}
+
+const std::string Box::Color()
+{
+    return "red";
+}
+
+int main()
+{
+
+    return 0;
+}
+```
+
+### Memory Management <a name="mem"></a>
+
+- Memory management in C++ involves allocating and deallocating memory for variables and data structures during the program's execution.
+- C++ provides several mechanisms for memory management, including manual memory management and automatic memory management through features like smart pointers and the Standard Template Library (STL) containers.
+
+1. Manual Memory Management:
+
+- `new` operator: Allocates memory on the heap.
+- `delete` operator: Deallocates memory allocated with `new`.
+
+```cpp
+#include <iostream>
+
+int main()
+{
+    int *value = new int(10);
+    delete value;
+
+    return 0;
+}
+```
+
+2. Smart Pointers:
+
+- Smart pointers are C++ objects that act like pointers but manage memory automatically.
+- `std::unique_ptr`: Manages a single object and owns its memory.
+- `std::shared_ptr`: Allows multiple smart pointers to share ownership of an object.
+
+```cpp
+#include <memory>
+
+int main()
+{
+    std::unique_ptr<int> value0 = std::make_unique<int>(10);
+    std::shared_ptr<int> value1 = std::make_shared<int>(10);
+
+    return 0;
+}
+```
+
+### Four types of Memeory Management
+
+1.  Stack Allocation:
+    -   Description:
+    -       Stack allocation is the simplest form of memory management.
+            Local variables are allocated on the stack, a region of memory managed by the compiler.
+    -   Characteristics:
+    -       Automatic management: Memory is automatically allocated and deallocated as functions are called and return.
+            Fast access: Allocation and deallocation are fast.
+            Limited lifetime: Variables have a limited lifetime, tied to the scope of the function in which they are declared.
+    -   Use Cases:
+    -       Suitable for short-lived variables with a well-defined scope.
+            Often used for function parameters and local variables.
+
+2.  Heap Allocation:
+    -   Description:
+    -       Heap allocation involves dynamic memory allocation on the heap, a region of memory managed at runtime.
+            Memory is allocated using operators like new and deallocated using delete.
+    -   Characteristics:
+    -       Manual management: Requires manual allocation and deallocation.
+            Extended lifetime: Memory persists until explicitly deallocated.
+            Slower access: Dynamic allocation involves more overhead compared to stack allocation.
+    -   Use Cases:
+    -       Suitable for objects with a dynamic lifetime or unknown size.
+            Allows for the creation of data structures with variable size or long-lasting objects.
+
+3.  Smart Pointers:
+    -   Description:
+    -       Smart pointers are objects that act like pointers but manage memory automatically.
+            `std::unique_ptr and std::shared_ptr` are common smart pointer types.
+    -   Characteristics:
+    -       Automatic management: Smart pointers automate memory management, providing automatic deallocation.
+            Ownership semantics: `std::unique_ptr` for exclusive ownership, `std::shared_ptr` for shared ownership.
+    -   Use Cases:
+    -       Helps prevent memory leaks by automatically managing memory.
+            Encourages safer and more readable code compared to manual memory management.
+
+4.  Memory Pools:
+    -   Description:
+    -       Memory pools involve pre-allocating a fixed-size block of memory and managing it as a pool of reusable chunks.
+            Often used in scenarios where frequent allocations and deallocations are required.
+    -   Characteristics:
+    -       Reduced fragmentation: Helps reduce memory fragmentation compared to frequent heap allocations.
+            Faster allocation: Allocating from a pre-allocated pool is generally faster than dynamic allocation.
+    -   Use Cases:
+    -       Real-time systems where memory fragmentation needs to be minimized.
+            Situations with a known maximum number of objects of a fixed size.
