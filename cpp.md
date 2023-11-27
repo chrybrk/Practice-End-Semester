@@ -456,3 +456,158 @@ int main()
     return 0;
 }
 ```
+
+## Concept of Abstract Class / Virtual Function <a name="concept_of_abs_class"></a>
+
+```cpp
+#include <iostream>
+
+// virtual keyword is used to make an abstract class.
+// const = 0, that means it must be derived by its inherit class.
+
+class SomeClass {
+    public:
+        virtual void functionA() const = 0;
+        virtual void functionB() const = 0;
+};
+
+
+int main()
+{
+    SomeClass objet = SomeClass(); // error: cannot initialize abstract class. What is an abstract class?
+
+    return 0;
+}
+```
+
+- An abstract class in C++ is a class that cannot be instantiated on its own and is meant to serve as a base or parent class for other classes.
+- Abstract classes can have both abstract and concrete (implemented) methods. Abstract methods are pure virtual functions that have no implementation in the abstract class and must be overridden by derived classes.
+- Abstract classes are designed to provide a common interface or set of functionalities that derived classes must implement.
+
+```cpp
+#include <iostream>
+
+
+class SomeClass { // base class
+    public:
+        virtual void functionA() const = 0; // must be overridden
+        virtual void functionB()
+        {
+            std::cout << "\ndare."; // default function, if not overridden
+        }
+};
+
+class SomeParentClass : public SomeClass { // class inheriting base
+    public:
+        void functionA() const override // must be overridden function
+        {
+            std::cout << "Sigh..";
+        }
+};
+
+
+int main()
+{
+    SomeParentClass object = SomeParentClass();
+
+    object.functionA(); // calling functionA
+    object.SomeClass::functionB(); // calling public functionB of base class
+    object.functionB(); // calling functionB from sub class
+
+    return 0;
+}
+
+```
+
+#### Output
+```
+Sigh..
+dare.
+dare.
+```
+
+```cpp
+#include <iostream>
+
+
+class SomeClass { // base class
+    public:
+        virtual void functionA() const = 0;
+        virtual void functionB()
+        {
+            std::cout << "\nbase B";
+        }
+        virtual void functionC()
+        {
+            std::cout << "\nbase C";
+        }
+};
+
+class SomeParentClass : public SomeClass {
+    public:
+        void functionA() const override
+        {
+            std::cout << "A";
+        }
+
+        void functionC() override
+        {
+            std::cout << "\nC";
+        }
+};
+
+
+int main()
+{
+    SomeParentClass object = SomeParentClass();
+
+    object.functionA();
+    object.SomeClass::functionB();
+    object.functionB();
+    object.SomeClass::functionC();
+    object.functionC();
+
+    return 0;
+}
+```
+
+#### Output
+```
+A
+base B
+base B
+base C
+C
+```
+
+## Friend Function <a name="friend_function"></a>
+
+- It is to use private member of an object.
+- It has to be declared outside of the class.
+- It must take already initialized object.
+
+### Example
+```cpp
+#include <iostream>
+
+class SomeClass {
+    private:
+        int a = 10, b = 20;
+    public:
+        friend int sum(const SomeClass& obj);
+};
+
+int sum(const SomeClass& obj)
+{
+    return obj.a + obj.b;
+}
+
+
+int main()
+{
+    SomeClass object = SomeClass();
+    std::cout << sum(object);
+
+    return 0;
+}
+```

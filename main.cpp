@@ -1,27 +1,22 @@
 #include <iostream>
 
-class Box {
+class SomeClass {
+    private:
+        int a = 10, b = 20;
     public:
-        int size;
-
-    public:
-        void TakeSize(int _size)
-        {
-            size = _size;
-        }
-
-        int DisplaySize()
-        {
-            return size;
-        }
+        friend int sum(const SomeClass& obj);
 };
+
+int sum(const SomeClass& obj)
+{
+    return obj.a + obj.b;
+}
+
 
 int main()
 {
-    Box object = Box();
-
-    object.TakeSize(100);
-    std::cout << object.DisplaySize();
+    SomeClass object = SomeClass();
+    std::cout << sum(object);
 
     return 0;
 }
