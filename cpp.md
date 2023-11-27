@@ -14,6 +14,7 @@
     - [Function Overloading](#function_overloading)
     - [Structure vs Class](#struct_vs_class)
     - [Concept of Class and Object](#concept_of_class_and_object)
+    - [Concept of Abstract Class / Virtual Function](#concept_of_abs_class)
     - [Friend Function](#friend_function)
 
 3. [More about Class](#unit3)
@@ -26,7 +27,6 @@
     - [Types](#types_of_inhert)
     - [Private vs Public vs Protected](#mem_method)
     - [Multiple level and Multiple Base Inheritance](#mul_lvl_base)
-    - [Abstract Class](#abstract)
     - [Nesting inside class?](#nesting)
 
 ## Introduction to C++ <a name="unit1"></a>
@@ -264,3 +264,195 @@ int main()
     -   Use Cases:
     -       Real-time systems where memory fragmentation needs to be minimized.
             Situations with a known maximum number of objects of a fixed size.
+
+## Functionality of C++ <a name="unit2"></a>
+
+### Functions <a name="functions"></a>
+
+- Example:
+
+```cpp
+#include <iostream>
+
+int sum(int, int);
+
+int main()
+{
+    int result = sum(10, 20);
+    std::cout << result << std::endl;
+
+    return 0;
+}
+
+
+int sum(int a, int b)
+{
+    return a + b;
+}
+```
+
+### Inline Function <a name="inline_function"></a>
+
+- The inline keyword is used to suggest to the compiler that a function should be expanded in place (i.e., the function's code should be inserted at the point where the function is called) rather than being called as a separate function.
+- This is a compiler optimization aimed at reducing the overhead of function calls for small, frequently used functions.
+
+- Example:
+
+```cpp
+#include <iostream>
+
+inline int sum(int a, int b)
+{
+    return a + b;
+}
+
+int main()
+{
+    int result = sum(10, 20);
+    std::cout << result;
+
+    return 0;
+}
+```
+
+- How it looks under the hood?
+
+```cpp
+#include <iostream>
+
+int main()
+{
+    int result = 10 + 20; // removes the calling. just the actions
+    std::cout << result;
+
+    return 0;
+}
+
+```
+
+- It removes the calling of function and only inherit the content of the function or just its actions.
+- **IMPORTANT** It only works when compiled with, `g++ <filename> -O3`. `-O3` is meant for optimization.
+
+### Default arguments <a name="def_args"></a>
+
+- When functions already contains a default arguments, it is optional to pass the arguments. It would not cause any errors.
+- `int sum(int a = 10);` here, when we will call `sum()` it will automatically take 10 as argument, if not provided explicitly.
+
+- Example:
+
+```cpp
+#include <iostream>
+
+int sum(int a = 10, int b = 20)
+{
+    return a + b;
+}
+
+int main()
+{
+    std::cout << sum() << std::endl;    // output: 30
+    std::cout << sum(50, 50);           // output: 100
+
+    return 0;
+}
+```
+
+### Function Overloading <a name="function_overloading"></a>
+
+- Changes in parameters of the function, and having `n` number of functions with same name, is called `function overloading`.
+- Example:
+
+```cpp
+#include <iostream>
+
+int add(int a, int b) {
+    return a + b;
+}
+
+int add(int a, int b, int c) {
+    return a + b + c;
+}
+
+double add(double a, double b) {
+    return a + b;
+}
+
+int main() {
+    int result1 = add(3, 4);
+    std::cout << "Result 1: " << result1 << std::endl;
+
+    int result2 = add(1, 2, 3);
+    std::cout << "Result 2: " << result2 << std::endl;
+
+    double result3 = add(2.5, 3.7);
+    std::cout << "Result 3: " << result3 << std::endl;
+
+    return 0;
+}
+```
+
+### Structure vs Class <a name="struct_vs_class"></a>
+|         **Feature**         |                    **Structure**                   |                                    **Class**                                    |
+|:---------------------------:|:--------------------------------------------------:|:-------------------------------------------------------------------------------:|
+| **Members Accessibility**   | All members are public by default.                 | Members can be private, protected, or public.                                   |
+| **Member Functions**        | Cannot have member functions.                      | Can have member functions.                                                      |
+| **Constructor/Destructor**  | Cannot have user-defined constructors/destructors. | Can have user-defined constructors/destructors.                                 |
+| **Inheritance**             | Cannot be used for inheritance.                    | Can be used for inheritance.                                                    |
+| **Access Specifiers**       | No access specifiers (public, private, protected). | Supports access specifiers.                                                     |
+| **Member Initialization**   | Members are not automatically initialized.         | Members are automatically initialized (if default constructor is not provided). |
+| **Default Access Modifier** | Default access modifier for members is public.     | Default access modifier for members is private.                                 |
+| **Object Initialization**   | Members are initialized individually.              | Members are initialized collectively through constructors.                      |
+
+
+### Concept of class and object <a name="concept_of_class_and_object"></a>
+
+- A class is a user-defined data type that encapsulates data members (variables) and member functions (methods) to operate on that data.
+- An object, on the other hand, is an instance of a class—a concrete realization of the class blueprint.
+
+|         **Feature**        |                                   **Class**                                   |                                    **Object**                                    |
+|:--------------------------:|:-----------------------------------------------------------------------------:|:--------------------------------------------------------------------------------:|
+| **Definition**             | A user-defined data type that encapsulates data members and member functions. | An instance of a class; a concrete realization of the class blueprint.           |
+| **Members**                | Contains data members (variables) and member functions (methods).             | Represents a single instance of the class and holds values for the data members. |
+| **Access Specifiers**      | public, private, protected control member visibility within the class.        | N/A (Access specifiers are relevant within the class definition).                |
+| **Instantiation**          | Not instantiated by itself; serves as a blueprint for objects.                | Created by instantiating the class using its name.                               |
+| **Memory Consumption**     | Does not consume memory until an object is created.                           | Consumes memory when instantiated as an object.                                  |
+| **Accessing Members**      | Accessed using the scope resolution operator :: outside the class.            | Accessed using the dot operator . on an object.                                  |
+| **Multiple Instances**     | Multiple objects can be created from the same class.                          | Each object is a distinct instance of the class.                                 |
+| **Static Members (C++11)** | Can have static data members and static member functions.                     | Static members are shared among all instances of the class.                      |
+| **Friend Functions**       | Can have friend functions that have access to private members.                | Friend functions can access private members of a specific object.                |
+| **Constructor/Destructor** | Can have user-defined constructors and destructors.                           | No user-defined constructors/destructors (implicitly provided if not defined).   |
+| **Inheritance**            | Can be used for inheritance (base class).                                     | Objects themselves do not participate in inheritance.                            |
+| **Polymorphism**           | Can participate in polymorphism through virtual functions.                    | Objects can be used in a polymorphic context with pointers and references.       |
+
+
+### Example of Class and Object
+
+```cpp
+#include <iostream>
+
+class Box {
+    public:
+        int size;
+
+    public:
+        void TakeSize(int _size)
+        {
+            size = _size;
+        }
+
+        int DisplaySize()
+        {
+            return size;
+        }
+};
+
+int main()
+{
+    Box object = Box();
+
+    object.TakeSize(100);
+    std::cout << object.DisplaySize();
+
+    return 0;
+}
+```

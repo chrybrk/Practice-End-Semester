@@ -1,10 +1,27 @@
 #include <iostream>
-#include <memory>
+
+class Box {
+    public:
+        int size;
+
+    public:
+        void TakeSize(int _size)
+        {
+            size = _size;
+        }
+
+        int DisplaySize()
+        {
+            return size;
+        }
+};
 
 int main()
 {
-    std::unique_ptr<int> value0 = std::make_unique<int>(10);
-    std::shared_ptr<int> value1 = std::make_shared<int>(10);
+    Box object = Box();
+
+    object.TakeSize(100);
+    std::cout << object.DisplaySize();
 
     return 0;
 }
