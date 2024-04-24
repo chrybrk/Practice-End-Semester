@@ -59,7 +59,7 @@
 -   Executes code
 -   Provides runtime environment
 
-## Concept of OOPS <a name="#intro_oops"></a>
+## Concept of OOPS <a name="intro_oops"></a>
 1. Inheritance:
     -   Java supports inheritance, allowing a class to inherit properties and behaviors from another class.
     -   This promotes code reuse and the creation of a hierarchy of classes.
@@ -75,3 +75,60 @@
 4.  Abstraction:
     -   Abstraction involves simplifying complex systems by modeling classes based on the essential properties and behaviors they share.
     -   It allows the programmer to focus on the relevant details while ignoring unnecessary complexities.
+
+## IO Operators <a name="intro_io"></a>
+- `java System.out.println("Hello, World!");`
+- With using this line of code, we can print things out on screen.
+- Like, other languages do, we can print from `String` to `Int` or `Float`, java can do it too.
+
+1. Basic Hello World Program
+```java
+/*
+ * Things to note:
+ *      File name: Main.java
+ *      Class name: Main
+ *      File and Class name must match.
+ *      else, it will throw err.
+ *
+ *      This is the standard way of writing java code.
+*/
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+
+        int a = 10;
+        int b = 20;
+        int c = a + b;
+
+        System.out.println("Summing " + a + " + " + b + " = " + c);
+    }
+}
+```
+
+2. Basic User Input
+```java
+// importing external package
+import java.util.Scanner;
+
+// In this case, Scanner is a class which we can use to take input.
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner ref_variable = new Scanner(System.in);
+
+        // We will discuss more about how `new` keyword works.
+        // Scanner: class is a user-defined data type,
+        // int a = 10; so when we create user-defined data, we will use that data type.
+        // Scanner(System.in); when creating object for Scanner, it takes one argument (System.in).
+        // ref_variable, whenever we create object it returns address where the object is in memory.
+        // NOTE: System.in, is a file descriptor, it is unique variable that has reference of opened file,
+        // Or Input Output Stream. Like, console.
+        
+        int a = ref_variable.nextInt(); // nextInt(), is a method of Scanner class. which reads `int` from input.
+        int b = ref_variable.nextInt();
+        int c = a + b;
+
+        System.out.println(c);
+    }
+}
+```
