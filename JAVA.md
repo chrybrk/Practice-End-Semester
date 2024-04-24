@@ -211,6 +211,60 @@ public class Test {
 
 ### Protected:
 
+- `Main.java`
+```java
+package UserPackage;
+
+/*
+ * NOTICE: we cannot use protected with class
+
+    Main.java:3: error: modifier protected not allowed here
+    protected class Test {
+              ^
+    1 error
+*/
+
+public class Main {
+    protected void some_method() {
+
+    }
+}
+
+```
+
+- `Test.java`
+```java
+import UserPackage.*;
+
+public class Test {
+    public static void main(String args[]) {
+        Main ref_variable = new Main();
+        ref_variable.some_method();
+
+        /* OUTPUT:
+            Test.java:6: error: some_method() has protected access in Main
+                    ref_variable.some_method();
+                                ^
+            1 error
+            error: compilation failed
+        */
+    }
+}
+```
+
+- Solution to above problem.
+```java
+import UserPackage.*;
+
+// It needs to extend the protected class.
+public class Test extends Main {
+    public static void main(String args[]) {
+        Test ref_variable = new Test();
+        ref_variable.some_method();
+    }
+}
+```
+
 |                                   	| **Default** 	| **Private** 	| **Public** 	| **Protected** 	|
 |:---------------------------------:	|:-----------:	|:-----------:	|:----------:	|:-------------:	|
 |             Same Class            	|     yes     	|     yes     	|     yes    	|      yes      	|
@@ -218,3 +272,87 @@ public class Test {
 |    Same package<br>Non-Subclass   	|     yes     	|      no     	|     yes    	|      yes      	|
 |   Different Package<br>Subclass   	|      no     	|      no     	|     yes    	|      yes      	|
 | Different package<br>Non-Subclass 	|      no     	|      no     	|     no     	|      yes      	|
+
+## Keywords: final, static, new <a name="intro_keyword"></a>
+
+### final keyword: variable
+```java
+public class Test {
+    public static void main(String args[]) {
+        final int a = 10;
+        a = 20;
+        /*
+            Test.java:5: error: cannot assign a value to final variable a
+                    a = 20;
+                    ^
+            1 error
+            error: compilation failed
+        */
+
+
+        // We cannot modify final variable.
+        // `final` keyword applied with variable makes it constant.
+    }
+}
+```
+
+### final keyword: method 
+```java
+public class Test {
+    public static void main(String args[]) {
+    }
+}
+
+class A {
+    final void some_method() {
+    }
+}
+
+class B extends A {
+    void some_method() {
+    }
+}
+
+/*
+Test.java:12: error: some_method() in B cannot override some_
+method() in A
+    void some_method() {
+         ^
+  overridden method is final
+1 error
+error: compilation failed
+*/
+
+// We cannot override method when `final` is applied.
+```
+
+### final keyword: class
+
+```java
+public class Test {
+    public static void main(String args[]) {
+    }
+}
+
+final class A {
+    void some_method() {
+    }
+}
+
+class B extends A {
+    void some_method() {
+    }
+}
+
+/*
+Test.java:11: error: cannot inherit from final A
+class B extends A {
+                ^
+1 error
+error: compilation failed
+*/
+
+// We cannot inherit when `final` is applied.
+```
+
+### static keyword
