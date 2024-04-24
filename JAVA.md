@@ -77,7 +77,7 @@
     -   It allows the programmer to focus on the relevant details while ignoring unnecessary complexities.
 
 ## IO Operators <a name="intro_io"></a>
-- `java System.out.println("Hello, World!");`
+- `System.out.println("Hello, World!");`
 - With using this line of code, we can print things out on screen.
 - Like, other languages do, we can print from `String` to `Int` or `Float`, java can do it too.
 
@@ -132,3 +132,89 @@ public class Main {
     }
 }
 ```
+
+## Class vs Object <a name="intro_cvo"></a>
+- Classes define the blueprint for objects, encapsulating data and methods.
+- Class is similar group of objects.
+- Object is a physical entity.
+```java
+public class Main {
+    public static void main(String args[]) {
+        /* OBJECT */
+        Test ref_variable = new Test();
+    }
+}
+
+/* CLASS */
+public class Test {
+    public int some_variable;
+
+    public void some_method() {
+        System.out.println("Some output.");
+    }
+}
+```
+
+## Private vs Public vs Protected <a name="intro_modifier"></a>
+
+### Private:
+```java
+public class Main {
+    public static void main(String args[]) {
+        Test ref_variable = new Test();
+
+        System.out.println(ref_variable.some_variable);
+
+        /* output
+            Main.java:5: error: some_variable has private access in Test
+                    System.out.println(ref_variable.some_variable);
+                                                   ^
+            1 error
+            error: compilation failed
+        */
+
+        // We can see that making a variable private in other class.
+        // We cannot use it.
+        // But, its own class can use it.
+    }
+}
+
+public class Test {
+    private int some_variable;
+
+    public void some_method() {
+        some_variable = 10;
+    }
+}
+```
+
+### Public:
+```java
+public class Main {
+    public static void main(String args[]) {
+        Test ref_variable = new Test();
+
+        System.out.println(ref_variable.some_variable);
+
+        /* output
+         * 0
+        */
+
+        // in case of `public`, its accessible in every scope.
+    }
+}
+
+public class Test {
+    public int some_variable;
+}
+```
+
+### Protected:
+
+|                                   	| **Default** 	| **Private** 	| **Public** 	| **Protected** 	|
+|:---------------------------------:	|:-----------:	|:-----------:	|:----------:	|:-------------:	|
+|             Same Class            	|     yes     	|     yes     	|     yes    	|      yes      	|
+|      Same package<br>Subclass     	|     yes     	|      no     	|     yes    	|      yes      	|
+|    Same package<br>Non-Subclass   	|     yes     	|      no     	|     yes    	|      yes      	|
+|   Different Package<br>Subclass   	|      no     	|      no     	|     yes    	|      yes      	|
+| Different package<br>Non-Subclass 	|      no     	|      no     	|     no     	|      yes      	|
