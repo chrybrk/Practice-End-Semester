@@ -7,20 +7,20 @@
     - [Class vs Object](#intro_cvo)
     - [Private vs Public vs Protected](#intro_modifier)
     - [Keywords: final, static, new](#intro_keyword)
-2. [Core Concept of Java](#core)
-    - [Functions](#core_func)
+2. [Inheritance](#inheritance)
+    - [Define Inheritance](#inheritance_def)
+    - [Types](#inheritance_types)
+    - [Multiple level and Multiple Base Inheritance](#inheritance_mlv)
+    - [Nesting inside class?](#inheritance_nesting)
+3. [Core Concept of Java](#core)
     - [Overloading](#core_class)
     - [Constructor](#core_cstr)
     - [Abstract Class](#core_abs)
     - [Interface Class](#core_intf)
     - [Keywords: this, super](#core_keyword)
-3. [Inheritance](#inheritance)
-    - [Define Inheritance](#inheritance_def)
-    - [Types](#inheritance_types)
-    - [Multiple level and Multiple Base Inheritance](#inheritance_mlv)
-    - [Nesting inside class?](#inheritance_nesting)
 4. [More Java](#mjava)
     - [Strings](#mjava_strings)
+    - [Package](#mjava_package)
     - [Exception Handling](#mjava_exp)
     - [Throw & Throws](#mjava_diff)
     - [Multi-Threading](#mjava_mth)
@@ -395,4 +395,325 @@ Product has been created.
 4
 4
 4
+```
+
+## Define Inheritance <a name="inheritance_def"></a>
+## Types <a name="inheritance_types"></a>
+## Multiple level and Multiple Base Inheritance <a name="inheritance_mlv"></a>
+## Nesting inside class? <a name="inheritance_nesting"></a>
+
+## Function Overloading <a name="core_class"></a>
+
+- Function Overloading, refers to when more than one function has same name but with different parameters.
+- On runtime, it decides which function to call.
+
+```java
+public class Test {
+    public static void main(String args[]) {
+        Test ref_variable = new Test();
+        System.out.println(ref_variable.sum());
+        System.out.println(ref_variable.sum(40, 50));
+        System.out.println(ref_variable.sum(40.0055, 20.0044));
+    }
+
+    int sum() {
+        return 10 + 20;
+    }
+
+    int sum(int a, int b) {
+        return a + b;
+    }
+
+    double sum(double a, double b) {
+        return a + b;
+    }
+}
+```
+
+```bash
+30
+90
+60.0099
+```
+
+## Constructor <a name="core_cstr"></a>
+- Constructor are special function which belongs to class, and they have a purpose.
+- Constructor initialize the object.
+- Constructor are called first before any function by default.
+- Constructor don't have any `return type`, yet they return reference to the object.
+
+```java
+public class Test {
+    public static void main(String args[]) {
+        A ref_variable = new A();
+    }
+}
+
+class A {
+    A() {
+        System.out.printf("Constructor called.");
+    }
+}
+```
+
+```bash
+Constructor called.
+```
+
+- Like, other function `Constructor` are still function so they support overloading.
+
+```java
+public class Test {
+    public static void main(String args[]) {
+        A ref_variable_a = new A();
+        A ref_variable_b = new A(10);
+    }
+}
+
+class A {
+    A() {
+        System.out.println("Constructor called.");
+    }
+
+    A(int a) {
+        System.out.println("Constructor called. " + a);
+    }
+}
+```
+
+```bash
+Constructor called.
+Constructor called. 10
+```
+
+- `Copy Constructor`, it takes the already initialized object and copies it instance variable value.
+
+```java
+public class Test {
+    public static void main(String args[]) {
+        A ref_variable_a = new A(10);
+        A ref_variable_b = new A(ref_variable_a);
+
+        System.out.println(ref_variable_a.a);
+        System.out.println(ref_variable_b.a);
+    }
+}
+
+class A {
+    int a;
+
+    A(int a) {
+        this.a = a;
+        System.out.println("Constructor called.");
+    }
+
+    A(A object) {
+        this.a = object.a;
+        System.out.println("Copy Constructor called.");
+    }
+}
+```
+
+```bash
+Constructor called.
+Copy Constructor called.
+10
+10
+```
+
+## Abstract Class <a name="core_abs"></a>
+- `abstract`, is a keyword used before `class`, or `method` declaration.
+- Data abstraction is the process of hiding certain details and showing only essential information to the user.
+- **Abstract class**: we cannot create object of this type class, it needs to be inherited by other class to make it useable.
+- **Abstract Method**: they don't have a body, the class that is going to inherit needs to provide the body.
+
+```java
+public class Test {
+    public static void main(String args[]) {
+        B ref_variable = new B();
+        ref_variable.display();
+        ref_variable.default_display();
+    }
+}
+
+abstract class A {
+    abstract void display(); // no-body
+    void default_display() {
+        // non-abstract can have body
+        System.out.println("I have multiple family. multiple bae. hate 1st one.");
+    }
+}
+
+class B extends A {
+    void display() {
+        // provide body here.
+        System.out.println("2nd wife. sassy!!");
+    }
+}
+```
+
+```bash
+2nd wife. sassy!!
+I have multiple family. multiple bae. hate 1st one.
+```
+
+## Interface Class <a name="core_intf"></a>
+- `interface` keyword, used same way as abstract.
+- **Interface**: is like `abstract`, but it does not have a method which can have a body, means, every method inside of interface has to be implemented by the inherited class.
+- Like, `abstract`, `interface` cannot be used to create object.
+- **Interface**: methods are by default, `abstract, public` (that's why it's required to override every method.)
+- **Interface**: attributes are by default, `public, static, final`
+- **Why we need interface that just acts like abstract class?**: Java does not support multiple inheritance, with support of interface, we can use multiple class to be inherited from.
+
+### Example: Interface
+
+```java
+public class Test {
+    public static void main(String args[]) {
+        B ref_variable = new B();
+        ref_variable.display();
+        ref_variable.default_display();
+    }
+}
+
+interface A {
+    // must be public, otherwise cause an error.
+    public void display(); // no-body
+    public void default_display();
+}
+
+class B implements A {
+    // must be public, otherwise cause an error.
+    public void display() {
+        // provide body here.
+        System.out.println("2nd wife. sassy!!");
+    }
+
+    // must be public, otherwise cause an error.
+    public void default_display() {
+        // provide body here.
+        System.out.println("I have two family, like family guy. Genes are inherited.");
+    }
+}
+```
+
+```bash
+2nd wife. sassy!!
+I have two family, like family guy. Genes are inherited.
+```
+
+### Example: Multiple Interface
+
+```java
+public class Test {
+    public static void main(String args[]) {
+        SoloLeveling ref_variable = new SoloLeveling();
+        ref_variable.WhichAnime("SoloLeveling");
+        ref_variable.Rate(10); // 10/10
+        ref_variable.IsPGRated(true);
+        ref_variable.HasStory(true);
+    }
+}
+
+interface Anime {
+    public void Rate(int scale);
+    public void WhichAnime(String name);
+}
+
+interface Hentai {
+    public void IsPGRated(boolean value);
+    public void HasStory(boolean value);
+}
+
+class SoloLeveling implements Anime, Hentai {
+    // SoloLeveling has nun-hentai elements
+
+    public void Rate(int scale) {
+        System.out.println(scale);
+    }
+
+    public void WhichAnime(String name) {
+        System.out.println(name);
+    }
+
+    public void IsPGRated(boolean value) {
+        System.out.println(value);
+    }
+
+    public void HasStory(boolean value) {
+        System.out.println(value);
+    }
+}
+```
+
+## Keywords: this, super <a name="core_keyword"></a>
+
+- `this`, it refers to the current object.
+- Whereas `super`, it refers to the parent class.
+- `this.`, we can access instance variable.
+- `super.`, we can access parent class instance variable.
+- `this()`, to call the current class constructor.
+- `super()`, to call the parent class constructor.
+
+
+### Example 1:
+
+```java
+public class Test {
+    public static void main(String args[]) {
+        B ref_variable = new B();
+    }
+}
+
+class A {
+    int instance_a;
+    int instance_b;
+
+    A() {
+        System.out.println("Constructor called.");
+    }
+
+    A(int a, int b) {
+        System.out.println("Constructor called. " + a + ", " + b);
+        this.instance_a = a;
+        this.instance_b = b;
+    }
+}
+
+class B extends A {
+    B() {
+        super(10, 20); // calling parent class constructor
+    }
+}
+```
+
+```bash
+Constructor called. 10, 20
+```
+
+
+### Example 2:
+
+```java
+public static void main(String args[]) {
+        A ref_variable = new A();
+    }
+}
+
+class A {
+    int instance_a;
+    int instance_b;
+
+    A() {
+        this();
+    }
+}
+```
+
+```bash
+Test.java:12: error: recursive constructor invocation
+        this();
+        ^
+1 error
+error: compilation failed
 ```

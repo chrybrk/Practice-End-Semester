@@ -1,24 +1,39 @@
 public class Test {
     public static void main(String args[]) {
-        Product prod_a = new Product();
-        Product prod_b = new Product();
-        Product prod_c = new Product();
-        Product prod_d = new Product();
-
-        System.out.println(Product.count_number_of_product);
-        System.out.println(prod_a.count_number_of_product);
-        System.out.println(prod_b.count_number_of_product);
-        System.out.println(prod_c.count_number_of_product);
-        System.out.println(prod_d.count_number_of_product);
+        SoloLeveling ref_variable = new SoloLeveling();
+        ref_variable.WhichAnime("SoloLeveling");
+        ref_variable.Rate(10); // 10/10
+        ref_variable.IsPGRated(true);
+        ref_variable.HasStory(true);
     }
 }
 
-class Product {
-    public static int count_number_of_product;
+interface Anime {
+    public void Rate(int scale);
+    public void WhichAnime(String name);
+}
 
-    Product() {
-        // increment the number of product
-        count_number_of_product++;
-        System.out.println("Product has been created.");
+interface Hentai {
+    public void IsPGRated(boolean value);
+    public void HasStory(boolean value);
+}
+
+class SoloLeveling implements Anime, Hentai {
+    // SoloLeveling has nun-hentai elements
+
+    public void Rate(int scale) {
+        System.out.println(scale);
+    }
+
+    public void WhichAnime(String name) {
+        System.out.println(name);
+    }
+
+    public void IsPGRated(boolean value) {
+        System.out.println(value);
+    }
+
+    public void HasStory(boolean value) {
+        System.out.println(value);
     }
 }
