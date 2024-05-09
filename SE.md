@@ -388,6 +388,226 @@ Overall, the Agile model is used because it offers a flexible, collaborative, an
 - **Phases:** System testing occurs after integration testing and before acceptance testing in the software development lifecycle.
 - **Deliverables:** The main deliverable of system testing is a comprehensive test report that includes test results, defects found, and recommendations for further improvement.
 
+# Control Flow Graph (CFG) in Software Engineering
+
+**Definition:**
+- A Control Flow Graph (CFG) is a graphical representation of the control flow or flow of execution of a program or software system.
+  
+**Components:**
+- **Nodes:** Represent basic blocks of code, typically containing a sequence of instructions without any branch or jump statements.
+- **Edges:** Represent control flow between nodes, indicating the possible execution paths within the program.
+  
+**Purpose:**
+- **Analysis:** CFGs are used for program analysis and understanding, enabling developers to visualize the structure and behavior of the code.
+- **Optimization:** CFGs help in identifying opportunities for code optimization and performance improvement by analyzing control flow patterns.
+  
+**Construction:**
+- CFGs are constructed by identifying basic blocks of code and determining the control flow between them using control flow statements (e.g., if, while, for).
+- Control flow statements create branches and loops in the CFG, affecting the possible execution paths through the program.
+  
+**Analysis Techniques:**
+- **Path Coverage:** CFGs are used to analyze code paths and determine path coverage criteria for testing, such as statement coverage, branch coverage, and path coverage.
+- **Static Analysis:** Static analysis techniques use CFGs to identify potential defects, vulnerabilities, or code smells in the software without executing the code.
+  
+**Formula:**
+- The formula to calculate the number of edges (E) in a CFG with 'N' nodes (basic blocks) is: E = N + P - 1, where 'P' is the number of conditional branches (if statements) in the code.
+  
+**Example:**
+Consider the following code snippet:
+
+```
+if (condition) {
+    // Block A
+    statement1;
+} else {
+    // Block B
+    statement2;
+}
+
+  +---+
+  | 1 |----> [Block A]
+  +---+
+   |
+   v
+  +---+
+  | 2 |----> [Block B]
+  +---+
+```
+
+```java
+
+int n = 5;
+for (int i = 0; i < n; i++) {
+    if (i % 2 == 0) {
+        // Block A
+        System.out.println("Even: " + i);
+    } else {
+        // Block B
+        System.out.println("Odd: " + i);
+    }
+}
+
+                 [Loop Initialization] (Node 1)
+                       |
+                      / \
+                     /   \
+                    /     \
+                   /       \
+                  /         \
+                 /           \
+                /             \
+               /               \
+              /                 \
+             /                   \
+            /                     \
+[Loop Condition] (Node 2)   [Loop Increment] (Node 4)
+      |                          |
+     / \                        / \
+    /   \                      /   \
+   /     \                    /     \
+  /       \                  /       \
+ /         \                /         \
+/           \              /           \
+|           |             |            |
++---+     +---+         +---+        +---+
+| 3 |     | 6 |         | 7 |        | 9 |
++---+     +---+         +---+        +---+
+Even     [Loop Increment]  Odd   [End of Loop]
+(Node 3)     (Node 5)    (Node 8)    (Node 9)
+```
+
+# McCabe’s Cyclomatic Complexity Metric
+
+**Definition:**
+- McCabe’s Cyclomatic Complexity Metric is a software metric developed by Thomas McCabe in 1976.
+- It quantifies the complexity of a program's control flow by counting the number of linearly independent paths through the program's source code.
+
+**Calculation:**
+- Cyclomatic complexity (V(G)) is calculated using the formula: 
+  V(G) = E - N + 2P,
+  where:
+    - E is the number of edges in the control flow graph.
+    - N is the number of nodes in the control flow graph.
+    - P is the number of connected components (regions) of the control flow graph.
+    
+**Interpretation:**
+- A higher cyclomatic complexity value indicates higher program complexity and higher testing effort.
+- Lower complexity values (e.g., below 10) are desirable as they suggest simpler, more maintainable code.
+- Complexity values above certain thresholds may indicate code that is difficult to understand, test, and maintain.
+
+**Benefits:**
+- Provides a quantitative measure of program complexity, aiding in code review, maintenance, and refactoring efforts.
+- Helps identify complex areas of code that may require additional testing or refactoring to improve quality and maintainability.
+- Can be used as a guide for setting coding standards and identifying potential areas for code optimization.
+
+**Considerations:**
+- Cyclomatic complexity should be used in conjunction with other software metrics and qualitative assessments for a comprehensive evaluation of code quality.
+- It does not capture all aspects of software quality and should be interpreted in context with other factors such as code readability, modularity, and documentation.
+
+**Example:**
+Consider a simple if-else statement:
+```java
+if (condition) {
+    // Block A
+} else {
+    // Block B
+}
+```
+
+# Debugging Approach in Software Engineering
+
+**Definition:**
+- Debugging is the process of identifying, analyzing, and resolving defects or errors in software programs to ensure they behave as intended.
+
+**Approaches:**
+1. **Incremental Debugging:**
+   - Debugging small sections of code or individual components at a time.
+   - Helps isolate and identify defects in specific areas of the codebase.
+   
+2. **Top-Down Debugging:**
+   - Starting debugging from higher-level modules or components and gradually diving into lower-level details.
+   - Focuses on identifying defects at higher levels of abstraction before addressing lower-level issues.
+   
+3. **Bottom-Up Debugging:**
+   - Starting debugging from lower-level modules or components and progressively moving up to higher-level structures.
+   - Helps identify and fix defects at a granular level before addressing broader system-level issues.
+   
+4. **Root Cause Analysis:**
+   - Identifying the underlying cause or source of a defect to prevent similar issues from occurring in the future.
+   - Involves analyzing code, system behavior, and external factors to trace the root cause of defects.
+   
+5. **Collaborative Debugging:**
+   - Involving multiple developers, testers, or stakeholders in the debugging process.
+   - Encourages knowledge sharing, problem-solving, and faster resolution of defects through teamwork.
+   
+6. **Instrumentation and Logging:**
+   - Adding debug statements, logging, or instrumentation to code to capture runtime information and trace execution flow.
+   - Helps identify and diagnose defects by providing insights into code behavior and variable values at runtime.
+   
+7. **Regression Debugging:**
+   - Debugging code changes or new features that introduce defects into existing software.
+   - Involves comparing previous versions with current versions to identify and address regression defects.
+   
+8. **Automated Debugging:**
+   - Using automated tools, debuggers, or testing frameworks to assist in the debugging process.
+   - Helps automate repetitive debugging tasks, analyze code behavior, and identify defects more efficiently.
+
+**Best Practices:**
+- **Reproduce and Isolate:** Reproduce the defect in a controlled environment and isolate its root cause.
+- **Use Version Control:** Track code changes and revert to previous versions if necessary.
+- **Document Findings:** Document debugging steps, findings, and resolutions for future reference.
+- **Test Fixes:** Verify that fixes resolve the defect without introducing new issues through thorough testing.
+
+Debugging is an essential skill for software developers, testers, and engineers, enabling them to ensure the reliability, functionality, and quality of software systems.
+
+# ISO 9000 and ISO 9001 in Software Engineering
+
+**ISO 9000:**
+- **Definition:** ISO 9000 is a series of international standards that provide guidelines and requirements for quality management systems (QMS) in various industries.
+- **Purpose:** ISO 9000 standards help organizations establish and maintain effective quality management practices to ensure customer satisfaction and continuous improvement.
+- **Components:** The ISO 9000 series includes standards such as ISO 9001, ISO 9002, and ISO 9003, each focusing on different aspects of quality management.
+
+**ISO 9001:**
+- **Definition:** ISO 9001 is the most widely recognized standard in the ISO 9000 series, specifying requirements for a quality management system (QMS) that organizations must fulfill to achieve certification.
+- **Scope:** ISO 9001 covers various aspects of quality management, including customer focus, leadership, process management, and continuous improvement.
+- **Certification:** Organizations can obtain ISO 9001 certification by demonstrating compliance with the standard's requirements through an independent audit process.
+
+**ISO 9001 Principles:**
+1. **Customer Focus:** Organizations should understand and meet customer requirements to enhance customer satisfaction.
+2. **Leadership:** Leadership plays a crucial role in establishing and maintaining a quality-focused culture within the organization.
+3. **Engagement of People:** Involving and empowering employees at all levels promotes a sense of ownership and commitment to quality objectives.
+4. **Process Approach:** Managing activities and resources as interrelated processes helps achieve consistent and predictable results.
+5. **Improvement:** Continual improvement is essential for enhancing organizational performance and meeting evolving customer needs.
+6. **Evidence-based Decision Making:** Decisions should be based on analysis of relevant data and information to ensure effectiveness and efficiency.
+7. **Relationship Management:** Building and maintaining mutually beneficial relationships with suppliers and other stakeholders contributes to overall success.
+
+ISO 9000 and ISO 9001 provide a framework for organizations to establish robust quality management systems, drive process improvement, and achieve operational excellence.
+
+# SEI CMM in Software Engineering
+
+**Definition:**
+- The Software Engineering Institute (SEI) Capability Maturity Model (CMM) is a framework that provides guidelines for improving the processes used in software development and maintenance.
+
+**Purpose:**
+- The primary purpose of CMM is to help organizations assess and improve their software development processes to enhance product quality, reduce costs, and increase customer satisfaction.
+
+**Key Points:**
+1. **Levels of Maturity:** CMM defines five levels of process maturity, ranging from Initial (Level 1) to Optimizing (Level 5). Each level represents a stage of process improvement and organizational capability.
+2. **Process Areas:** CMM identifies key process areas (e.g., requirements management, project planning, quality assurance) that organizations should focus on to achieve higher levels of maturity.
+3. **Key Practices:** CMM outlines specific practices and activities associated with each process area, providing guidance on how to implement and institutionalize effective processes.
+4. **Assessment and Appraisal:** Organizations can conduct CMM assessments and appraisals to evaluate their current process maturity level and identify areas for improvement.
+5. **Continuous Improvement:** CMM emphasizes the importance of continuous improvement by providing a roadmap for organizations to incrementally enhance their processes over time.
+6. **Industry Standard:** CMM is widely recognized and used as a benchmark for software process improvement in various industries worldwide.
+7. **Evolution:** CMM has evolved over time, with later versions such as CMMI (Capability Maturity Model Integration) incorporating additional disciplines beyond software engineering.
+
+**Benefits:**
+- Improved Product Quality: Enhanced processes result in higher-quality software products with fewer defects and greater reliability.
+- Cost Reduction: Efficient and effective processes lead to cost savings through reduced rework and increased productivity.
+- Customer Satisfaction: Meeting or exceeding customer expectations by delivering high-quality software on time and within budget.
+- Organizational Efficiency: Streamlined processes improve organizational efficiency, resource utilization, and project management.
+
+The SEI CMM provides a structured approach for organizations to systematically assess, plan, and improve their software development processes, ultimately leading to better outcomes and increased competitiveness.
+
 # TODO - 21topics * 10min = 210min OR 3hrs
 
 - [x] Compare between all models
@@ -409,11 +629,33 @@ Overall, the Agile model is used because it offers a flexible, collaborative, an
 - [x] uml
 - [x] coding & testing
 - [x] system testing
-- [ ] cfg
-- [ ] McCabe's
-- [ ] debugging approach
-- [ ] system testing
-- [ ] iso
-- [ ] sei cmm
+- [x] cfg
+- [x] McCabe's
+- [x] debugging approach
+- [x] iso
+- [x] sei cmm
 
-in software engineering? write short note and point and convert into markdown file.
+# Page Number
+- 74 - waterfall model
+- 83 - iterative waterfall model
+- 88 - vmodel
+- 100 - rad
+- 105 - agile
+- 110 - extreme programming
+- 114 - scrum, spiral model
+- 142 - LOC
+- 146 - FP
+- 155 - cocomo
+- 200 - risk management
+- 232 - srs
+- 293 - cohesion & coupling
+- 315 - dfd
+- 408 - uml
+- 535 - coding & testing
+- 566 - cfg
+- 569 - McCabe's
+- 574 - debugging approach
+- 585 - system testing
+- 615 - hardware and software failure curve
+- 624 - iso
+- 632 - sei cmm
