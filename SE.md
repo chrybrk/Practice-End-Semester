@@ -175,6 +175,84 @@ Overall, the Agile model is used because it offers a flexible, collaborative, an
 - FP = UFP * CAF
 - UFP = (50 * 4) + (40 * 5) + (35 * 4) + (6 * 10) + (4 * 7) = 628 
 
+## COCOMO (Constructive Cost Model) in Software Engineering
+
+- **Model Types:** Basic COCOMO, Intermediate COCOMO, Detailed COCOMO.
+- **Basic COCOMO:** Estimates effort based on project size and cost drivers.
+- **Intermediate COCOMO:** Considers additional factors like personnel capabilities and project complexity.
+- **Detailed COCOMO:** Further refines estimation with factors like reuse and documentation requirements.
+- **Inputs:** Project size (e.g., lines of code, function points), cost drivers (e.g., personnel experience, tools).
+- **Outputs:** Estimates effort, duration, and staffing required for the project.
+- **Usage:** Used in project planning to estimate resources, schedule, and budget.
+- **Advantages:** Provides structured approach to estimation, identifies potential risks early.
+- **Limitations:** Estimates based on historical data and assumptions, accuracy depends on input quality.
+
+## Risk Management in Software Engineering
+
+- **Identification:** Identify potential risks that could impact project objectives.
+- **Assessment:** Assess likelihood and impact of identified risks.
+- **Prioritization:** Prioritize risks based on severity and potential impact.
+- **Mitigation:** Develop strategies to reduce likelihood or impact of risks.
+- **Monitoring:** Continuously monitor risks throughout project lifecycle.
+- **Communication:** Communicate risks and mitigation efforts to stakeholders.
+- **Documentation:** Document risks, assessments, and mitigation strategies.
+
+## SRS (Software Requirements Specification) in Software Engineering
+
+- **Purpose:** Describes requirements and specifications for a software system.
+- **Contents:** Includes introduction, scope, functional and non-functional requirements, user interfaces, system interfaces, data requirements, assumptions, and constraints.
+- **Key Characteristics:**
+  - Clear and Unambiguous
+  - Complete
+  - Consistent
+  - Verifiable
+- **Development Process:** Developed through collaboration, undergoes review and approval.
+- **Evolution:** May evolve throughout software development lifecycle.
+
+## Cohesion and Coupling in Software Engineering
+
+### Cohesion
+- Cohesion refers to the degree to which elements within a module or component are related to each other.
+- It measures how closely the responsibilities of a module or component are related to its purpose.
+- Higher cohesion indicates strong relationship and collaboration within a module, leading to better maintainability and reusability.
+
+### Coupling
+- Coupling refers to the degree of interdependence between modules or components in a software system.
+- It measures how closely modules are connected or dependent on each other.
+- Lower coupling implies loose connection between modules, enhancing flexibility and ease of maintenance.
+
+## Data Flow Diagrams (DFDs)
+
+**Definition:**
+- DFDs are graphical representations of the flow of data within a system.
+
+**Components:**
+- **Processes:** Represent functions or activities that transform input data into output data.
+- **Data Stores:** Repositories of data where information is stored.
+- **Data Flows:** Movement of data between processes, data stores, and external entities.
+- **External Entities:** Sources or destinations of data outside the system boundary.
+
+**Levels:**
+- DFDs can be hierarchical, with multiple levels of detail.
+- The highest level, Level 0 or Context Diagram, provides an overview of the entire system.
+- Lower levels provide more detailed views of specific processes or subsystems.
+
+**Notation:**
+- Processes: Represented by circles or rectangles.
+- Data Stores: Represented by open-ended rectangles.
+- Data Flows: Represented by arrows indicating data movement.
+- External Entities: Represented by squares.
+
+**Purpose:**
+- Used for analysis, design, and documentation of systems.
+- Helps stakeholders understand data flow and system behavior.
+- Identifies areas for improvement or optimization.
+
+**Benefits:**
+- Provides visual representation of system functionality.
+- Facilitates communication between stakeholders.
+- Helps in understanding data inputs, outputs, and processing logic.
+
 # TODO - 21topics * 10min = 210min OR 3hrs
 
 - [x] Compare between all models
@@ -188,11 +266,11 @@ Overall, the Agile model is used because it offers a flexible, collaborative, an
 - [x] scrum
 - [x] LOC
 - [x] FP
-- [ ] cocomo
-- [ ] risk management
-- [ ] srs
-- [ ] cohesion & coupling
-- [ ] dfd
+- [x] cocomo
+- [x] risk management
+- [x] srs
+- [x] cohesion & coupling
+- [x] dfd
 - [ ] uml
 - [ ] coding & testing
 - [ ] cfg
