@@ -35,7 +35,7 @@
     We can go back from Maintenance point.
 ```
 
-## V-Model (Verification and Validation)
+# V-Model (Verification and Validation)
 
 ```
     Requirement Analysis    <------------------->           Acceptance Testing
@@ -45,11 +45,11 @@
                                     Coding
 ```
 
-## Rapid Application Development (RAD)
+# Rapid Application Development (RAD)
 
 Rapid Application Development (RAD) is a software development methodology that prioritizes rapid prototyping and iterative development over traditional sequential development processes. The primary goal of RAD is to deliver software quickly while maintaining high quality.
 
-### Key Characteristics of RAD:
+## Key Characteristics of RAD:
 
 1. **Iterative Development**: RAD emphasizes rapid iterations and feedback loops. Developers quickly create prototypes based on user requirements and refine them through continuous feedback.
 2. **User Involvement**: **Users are actively involved throughout the development process.** Their feedback drives the evolution of the software, ensuring that it meets their needs.
@@ -61,7 +61,7 @@ Rapid Application Development (RAD) is a software development methodology that p
 
 Overall, RAD offers a dynamic and flexible approach to software development, making it particularly well-suited for projects with rapidly changing requirements or tight deadlines.
 
-## Why Use Agile Model in Software Development?
+# Why Use Agile Model in Software Development?
 
 The Agile model is employed in software development for several compelling reasons, primarily to address the limitations of traditional waterfall methodologies and to better align with the dynamic nature of modern software projects. Here are some key reasons why organizations choose to adopt Agile:
 
@@ -87,7 +87,7 @@ Overall, the Agile model is used because it offers a flexible, collaborative, an
 | Adaptability to Change     | Resistant to changes due to its sequential nature         | Allows for some adaptation and refinement throughout the development process | Limited adaptability, changes may disrupt the structured sequence | Emphasizes flexibility and adaptability to changing requirements | Embraces change and incorporates feedback throughout the process |
 | Collaboration               | Limited collaboration between teams and stakeholders      | Some collaboration within each iteration                      | Collaboration between development and testing teams  | Collaborative approach with active involvement of stakeholders | Highly collaborative, with a focus on teamwork and communication |
 
-## Extreme Programming (XP) Principles
+# Extreme Programming (XP) Principles
 
 1. User involvement drives development.
 2. Iterative cycles for continuous improvement.
@@ -100,7 +100,7 @@ Overall, the Agile model is used because it offers a flexible, collaborative, an
 9. Continuous refactoring for code improvement.
 10. Onsite customer presence for immediate feedback.
 
-## Spiral Model Overview, Meta Model (because it has features of different sdlc models)
+# Spiral Model Overview, Meta Model (because it has features of different sdlc models)
 
 - Iterative approach divided into cycles or "spirals."
 - Emphasizes risk management throughout the development process.
@@ -119,7 +119,7 @@ Overall, the Agile model is used because it offers a flexible, collaborative, an
 | V-Model             | Extension of the waterfall model with a strong emphasis on testing. Testing activities are aligned with corresponding development phases. Ensures testing is integrated throughout the lifecycle. | Emphasis on testing, clear correlation between development and testing activities.                                                        | Limited flexibility, may not be suitable for complex projects with evolving requirements.                               |
 | RAD (Rapid Application Development) | Focuses on rapid prototyping and iterative development. Emphasizes user involvement and feedback to refine prototypes quickly. Accelerates the development process.                   | Rapid development, user involvement in the development process.                                                                          | Relies heavily on user involvement, may not be suitable for projects with complex requirements.                         |
 
-## Scrum Overview
+# Scrum Overview
 
 - Agile framework for managing software development projects.
 - Roles: Scrum Master, Product Owner, Development Team.
@@ -128,7 +128,7 @@ Overall, the Agile model is used because it offers a flexible, collaborative, an
 - Values: Commitment, Courage, Focus, Openness, Respect.
 - Promotes collaboration, adaptability, and continuous improvement.
 
-## Lines of Code (LOC) in Software Engineering
+# Lines of Code (LOC) in Software Engineering
 
 - **Definition:** Total number of lines in a software program's source code.
 - **Metric:** Used to measure the size and complexity of a program.
@@ -139,7 +139,7 @@ Overall, the Agile model is used because it offers a flexible, collaborative, an
   - Not always a reliable measure of productivity or software complexity.
   - Focusing solely on LOC may lead to misleading conclusions.
 
-## Function Points (FP) in Software Engineering
+# Function Points (FP) in Software Engineering
 
 - **Definition:** Metric to measure size and complexity of software based on functionality.
 - **Units:** Measured in Function Points (FP).
@@ -153,7 +153,7 @@ Overall, the Agile model is used because it offers a flexible, collaborative, an
 - **Benefits:** Standardized measure for estimating effort, assessing productivity, and comparing systems.
 - **Limitations:** May not fully capture modern software complexity, requires expertise for calculation.
 
-### Formula 
+## Formula 
 
 - 0 - No Influence
 - 1 - Incidental
@@ -175,7 +175,7 @@ Overall, the Agile model is used because it offers a flexible, collaborative, an
 - FP = UFP * CAF
 - UFP = (50 * 4) + (40 * 5) + (35 * 4) + (6 * 10) + (4 * 7) = 628 
 
-## COCOMO (Constructive Cost Model) in Software Engineering
+# COCOMO (Constructive Cost Model) in Software Engineering
 
 - **Model Types:** Basic COCOMO, Intermediate COCOMO, Detailed COCOMO.
 - **Basic COCOMO:** Estimates effort based on project size and cost drivers.
@@ -187,7 +187,7 @@ Overall, the Agile model is used because it offers a flexible, collaborative, an
 - **Advantages:** Provides structured approach to estimation, identifies potential risks early.
 - **Limitations:** Estimates based on historical data and assumptions, accuracy depends on input quality.
 
-## Risk Management in Software Engineering
+# Risk Management in Software Engineering
 
 - **Identification:** Identify potential risks that could impact project objectives.
 - **Assessment:** Assess likelihood and impact of identified risks.
@@ -197,7 +197,7 @@ Overall, the Agile model is used because it offers a flexible, collaborative, an
 - **Communication:** Communicate risks and mitigation efforts to stakeholders.
 - **Documentation:** Document risks, assessments, and mitigation strategies.
 
-## SRS (Software Requirements Specification) in Software Engineering
+# SRS (Software Requirements Specification) in Software Engineering
 
 - **Purpose:** Describes requirements and specifications for a software system.
 - **Contents:** Includes introduction, scope, functional and non-functional requirements, user interfaces, system interfaces, data requirements, assumptions, and constraints.
@@ -209,19 +209,19 @@ Overall, the Agile model is used because it offers a flexible, collaborative, an
 - **Development Process:** Developed through collaboration, undergoes review and approval.
 - **Evolution:** May evolve throughout software development lifecycle.
 
-## Cohesion and Coupling in Software Engineering
+# Cohesion and Coupling in Software Engineering
 
-### Cohesion
+## Cohesion
 - Cohesion refers to the degree to which elements within a module or component are related to each other.
 - It measures how closely the responsibilities of a module or component are related to its purpose.
 - Higher cohesion indicates strong relationship and collaboration within a module, leading to better maintainability and reusability.
 
-### Coupling
+## Coupling
 - Coupling refers to the degree of interdependence between modules or components in a software system.
 - It measures how closely modules are connected or dependent on each other.
 - Lower coupling implies loose connection between modules, enhancing flexibility and ease of maintenance.
 
-## Data Flow Diagrams (DFDs)
+# Data Flow Diagrams (DFDs)
 
 **Definition:**
 - DFDs are graphical representations of the flow of data within a system.
@@ -253,7 +253,7 @@ Overall, the Agile model is used because it offers a flexible, collaborative, an
 - Facilitates communication between stakeholders.
 - Helps in understanding data inputs, outputs, and processing logic.
 
-## UML (Unified Modeling Language) in Software Engineering
+# UML (Unified Modeling Language) in Software Engineering
 
 **Definition:**
 - UML is a standardized modeling language used in software engineering for visualizing, specifying, constructing, and documenting software systems.
@@ -285,7 +285,7 @@ Overall, the Agile model is used because it offers a flexible, collaborative, an
 - UML is maintained by the Object Management Group (OMG), a consortium of industry vendors, organizations, and government agencies, ensuring its continued evolution and standardization.
 - The standardized notation and semantics of UML make it widely accepted and supported in the software engineering community.
 
-## Coding and Testing in Software Engineering
+# Coding and Testing in Software Engineering
 
 **Coding:**
 - Coding is the process of translating software requirements into source code using a programming language.
@@ -315,7 +315,7 @@ Overall, the Agile model is used because it offers a flexible, collaborative, an
 - **Complexity:** Testing complex software systems with multiple interdependent components can be challenging and require advanced testing techniques and tools.
 - **Changing Requirements:** Dynamic or evolving requirements can impact testing efforts and require frequent adjustments to test cases and strategies.
 
-## Different Types of Testing in Software Engineering
+# Different Types of Testing in Software Engineering
 
 1. **Unit Testing:**
    - Tests individual components or modules in isolation.
@@ -357,7 +357,7 @@ Overall, the Agile model is used because it offers a flexible, collaborative, an
     - Quick initial check to verify critical functionalities.
     - Determines if further testing is needed.
 
-## Black Box, White Box, and Gray Box Testing
+# Black Box, White Box, and Gray Box Testing
 
 **Black Box Testing:**
 - Tester focuses solely on external behavior.
