@@ -161,3 +161,9 @@
 - Medicine he took
 - When they noticed?
 - Any exposure to foreign things?
+
+## Step to lethal drug analysis
+1. Sample collection: Obtain biological sample such as blood, urine, tissues from the decreased person autoposy
+2. Extraction: Extract the substance from sample
+3. Screening: To check what kind of drug it is
+4. Gass Chromatography, Mass Spectrophotometric:
